@@ -10,34 +10,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <style>
-       
-    </style>
+    <link rel="stylesheet" href="./navbar.css">
 </head>
 
 <body>
     <main>
         <nav class="navbar">
             <div class="nav-logo-wrapper">
-                <img src="./Images/housso_logo.png" alt="Housso Logo" class="nav-logo">
+                <img src="../Images/housso_logo.png" alt="" width="130" height="46">
             </div>
 
             <!-- Desktop Navigation Links -->
-            <div class="nav-links" id="navLinks">
-                <a href="#home" class="nav-link-items">HOME</a>
-                <a href="#about" class="nav-link-items">ABOUT</a>
-                <a href="#project" class="nav-link-items">PROJECT</a>
-                <a href="#blogs" class="nav-link-items">BLOGS</a>
-                <a href="#careers" class="nav-link-items">CAREERS</a>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link-items">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./about/about.html" class="nav-link-items">ABOUT</a>
+                </li>
+                <li class="nav-item" id="projectDropdown">
+                    <a href="#" class="nav-link-items">
+                        PROJECT
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-item" id="ongoingSubmenu">
+                            <a href="#" class="dropdown-link">
+                                Ongoing
+                                <span class="dropdown-arrow">▶</span>
+                            </a>
+                            <div class="submenu">
+                                <a href="./Projects/Project_Anasaa/anasaa.html" class="submenu-link">Anasaa</a>
+                                <a href="./Projects/Project_Cliffland/cliffland.html" class="submenu-link">Cliffland</a>
+                                <a href="./Projects/Project_Ohio/ohio.html" class="submenu-link">OHIO</a>
+                                <a href="./Projects/Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
+                                <a href="./Projects/Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
+                                <a href="./Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover Green</a>
+                                <a href="./Projects/Project_Inara/inara.html" class="submenu-link">Inara</a>
+                                <a href="./Projects/Project_The Golden Wattle/thegoldenwattle.html" class="submenu-link">The
+                                    Golden Wattle</a>
+                                <a href="./Projects/Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
+                                <a href="./Projects/Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
+                                <a href="./Projects/Project_Grevillea/grevillea.html" class="submenu-link">Grevillea</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="./Blogs/blogs.html" class="nav-link-items">BLOGS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./career/career.html" class="nav-link-items">CAREERS</a>
+                </li>
+
                 <!-- Contact link for mobile menu -->
                 <div class="nav-link-contact mobile-contact">
-                    <a href="#contact" class="nav-link-items-contact">CONTACT</a>
+                    <a href="./contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
                 </div>
-            </div>
+            </ul>
 
             <!-- Desktop Contact Button -->
             <div class="nav-link-contact desktop-contact">
-                <a href="#contact" class="nav-link-items-contact">CONTACT</a>
+                <a href="./contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
             </div>
 
             <!-- Hamburger Menu Button -->
@@ -84,26 +119,39 @@
                 </div>
                 <div class="why-housso-section-box box-2">
                     <div class="box-content">
-                        <h1 class="box-title">Fantastic Location Advantage</h1>
+                        <h1 class="box-title">Great Community Living </h1>
                         <hr class="box-line">
-                        <p class="box-subtitle">Strategically located with easy access to key hubs, schools, and
-                            workplaces.</p>
+                        <p class="box-subtitle">Thoughtfully planned neighborhoods that foster connection and harmony.
+                        </p>
                     </div>
                 </div>
                 <div class="why-housso-section-box box-3">
                     <div class="box-content">
-                        <h1 class="box-title">Fantastic Location Advantage</h1>
+                        <h1 class="box-title">Loaded with Amenities
+                        </h1>
                         <hr class="box-line">
-                        <p class="box-subtitle">Strategically located with easy access to key hubs, schools, and
-                            workplaces.</p>
+                        <p class="box-subtitle">Enjoy a host of modern amenities designed for comfort, wellness, and
+                            recreation.
+                        </p>
                     </div>
                 </div>
                 <div class="why-housso-section-box box-4">
                     <div class="box-content">
-                        <h1 class="box-title">Fantastic Location Advantage</h1>
+                        <h1 class="box-title">Ideal Choice for Family
+                        </h1>
                         <hr class="box-line">
-                        <p class="box-subtitle">Strategically located with easy access to key hubs, schools, and
-                            workplaces.</p>
+                        <p class="box-subtitle">Safe, serene, and spacious – perfectly suited for family living.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-housso-section-box box-5">
+                    <div class="box-content">
+                        <h1 class="box-title">Unmatchable Lifestyle
+
+                        </h1>
+                        <hr class="box-line">
+                        <p class="box-subtitle">Experience elevated living with a blend of luxury,
+                            convenience, and peace.</p>
                     </div>
                 </div>
             </div>
@@ -115,12 +163,42 @@
             </div>
             <div class="project-section-content-wrapper">
                 <div class="project-btn-wrapper">
-                    <a href="#" class="project-card-btn active">North Bangalore</a>
-                    <a href="#" class="project-card-btn">Ananthapur</a>
+                    <a href="#" class="project-card-btn active" data-filter="north-bangalore">Bangalore</a>
+                    <a href="#" class="project-card-btn" data-filter="ananthapur">Ananthapur</a>
                 </div>
                 <div class="project-section-card-wrapper">
                     <!-- Card 1 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="north-bangalore">
+                        <div class="project-card-image-wrapper">
+                            <img src="./Images/project-card1.png" alt="Project Card 1" class="project-card-image">
+                        </div>
+                        <div class="project-card-content-wrapper">
+                            <div class="project-card-title-wrapper">
+                                <h1 class="project-card-title">HOUSSO SOUKYA ROAD (Residential Plots)
+                                </h1>
+                                <p class="project-card-subtitle">It's spread over 34 acres of lush green nature, proving
+                                    highly advantageous. It's
+                                    strategically positioned a mere 20-minute drive from key areas like Whitefield,
+                                    Hoskote, and Devanahalli.</p>
+                            </div>
+                            <div class="project-card-location-wrapper">
+                                <div class="project-card-location">
+                                    <img src="./Images/building.svg" alt="Building" class="project-card-location-icon">
+                                    <p class="project-card-location-text">30 ACRES</p>
+                                </div>
+                                <div class="project-card-location">
+                                    <img src="./Images/location.svg" alt="Building" class="project-card-location-icon">
+                                    <p class="project-card-location-text-2">Soukya Road 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="project-card-btn-wrapper">
+                                <a href="./Projects/Project_Soukya/soukya.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-section-card" data-location="north-bangalore">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card1.png" alt="Project Card 1" class="project-card-image">
                         </div>
@@ -144,13 +222,13 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Inara/inara.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="north-bangalore">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card2.png" alt="Project Card 2" class="project-card-image">
                         </div>
@@ -173,13 +251,13 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Anasaa/anasaa.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="north-bangalore">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card3.png" alt="Project Card 3" class="project-card-image">
                         </div>
@@ -202,13 +280,40 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Grevillea/grevillea.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 4 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="ananthapur">
+                        <div class="project-card-image-wrapper">
+                            <img src="./Images/project-card4.png" alt="Project Card 4" class="project-card-image">
+                        </div>
+                        <div class="project-card-content-wrapper">
+                            <div class="project-card-title-wrapper">
+                                <h1 class="project-card-title">ELARIAA (Residential Plots)</h1>
+                                <p class="project-card-subtitle">Where beauty meets prestige. A vibrant township on NH
+                                    44, Bengaluru, offering spacious living on eco-friendly land, seamlessly connected
+                                    to the upcoming AHUDA Layout.</p>
+                            </div>
+                            <div class="project-card-location-wrapper">
+                                <div class="project-card-location">
+                                    <img src="./Images/building.svg" alt="Building" class="project-card-location-icon">
+                                    <p class="project-card-location-text">8.5 ACRES</p>
+                                </div>
+                                <div class="project-card-location">
+                                    <img src="./Images/location.svg" alt="Building" class="project-card-location-icon">
+                                    <p class="project-card-location-text-2">Anantapur</p>
+                                </div>
+                            </div>
+                            <div class="project-card-btn-wrapper">
+                                <a href="./Projects/Project_Elariaa/elariaa.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-section-card" data-location="ananthapur">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card4.png" alt="Project Card 4" class="project-card-image">
                         </div>
@@ -230,13 +335,13 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Bellagio/bellagio.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 5 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="north-bangalore">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card5.png" alt="Project Card 5" class="project-card-image">
                         </div>
@@ -258,13 +363,41 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_The Golden Wattle/thegoldenwattle.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 6 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="north-bangalore">
+                        <div class="project-card-image-wrapper">
+                            <img src="./Images/project-card6.png" alt="Project Card 6" class="project-card-image">
+                        </div>
+                        <div class="project-card-content-wrapper">
+                            <div class="project-card-title-wrapper">
+                                <h1 class="project-card-title">CLIFFLAND
+                                    (Residential Plots)</h1>
+                                <p class="project-card-subtitle">Experience serenity at Over the Rainbow. Villa Homes in
+                                    Nandi Hills, North Bangalore.
+                                    Villas set in stepped formation along the existing hilly terrain.</p>
+                            </div>
+                            <div class="project-card-location-wrapper">
+                                <div class="project-card-location">
+                                    <img src="./Images/building.svg" alt="Building" class="project-card-location-icon">
+                                    <p class="project-card-location-text">3 ACRES</p>
+                                </div>
+                                <div class="project-card-location">
+                                    <img src="./Images/location.svg" alt="Building" class="project-card-location-icon">
+                                    <p class="project-card-location-text-2">Sidlaghatta, Bangalore</p>
+                                </div>
+                            </div>
+                            <div class="project-card-btn-wrapper">
+                                <a href="./Projects/Project_Cliffland/cliffland.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-section-card" data-location="north-bangalore">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card6.png" alt="Project Card 6" class="project-card-image">
                         </div>
@@ -286,13 +419,13 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Cedar/cedar.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 7 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="ananthapur">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card7.png" alt="Project Card 7" class="project-card-image">
                         </div>
@@ -314,13 +447,13 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Clover Green/clovergreen.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
                     <!-- Card 8 -->
-                    <div class="project-section-card">
+                    <div class="project-section-card" data-location="north-bangalore">
                         <div class="project-card-image-wrapper">
                             <img src="./Images/project-card8.png" alt="Project Card 8" class="project-card-image">
                         </div>
@@ -342,8 +475,8 @@
                                 </div>
                             </div>
                             <div class="project-card-btn-wrapper">
-                                <a href="#" class="project-card-btn active">Learn More</a>
-                                <a href="#" class="project-card-btn">Contact Us</a>
+                                <a href="./Projects/Project_Ohio/ohio.html" class="project-card-btn active">Learn More</a>
+                                <a href="./contactus/contact.html" class="project-card-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -379,36 +512,53 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-content">
                                 <p class="testimonial-text">
-                                    Housso gave us more than just a plot—it gave us a peaceful, well-planned space to
-                                    build our future. The location and transparency made everything easy and
-                                    stress-free. Investing with Housso was the best decision I made this year. The
-                                    E-Khata and highway access sealed the deal, and the team was supportive throughout.
+                                    Owning a piece of Inara feels like owning a private retreat. The land is premium,
+                                    the vision is clear, and Housso’s execution is flawless.
                                 </p>
-                                <div class="testimonial-author">Santhosh Kumar, Bangalore</div>
+                                <div class="testimonial-author">Dr. Alisha Varma, Surgeon</div>
                             </div>
                         </div>
 
                         <div class="testimonial-slide">
                             <div class="testimonial-content">
                                 <p class="testimonial-text">
-                                    The professionalism and attention to detail from Housso exceeded our expectations.
-                                    From the initial consultation to the final handover, every step was handled with
-                                    care. The infrastructure development and legal documentation were flawless. We
-                                    couldn't be happier with our investment decision.
+                                    What impressed me most was the clear documentation and transparency. Housso made the
+                                    entire process smooth. Anasaa is a fantastic investment for anyone looking to
+                                    embrace a greener life.
                                 </p>
-                                <div class="testimonial-author">Priya Sharma, Chennai</div>
+                                <div class="testimonial-author">Vivek Sharma</div>
                             </div>
                         </div>
 
                         <div class="testimonial-slide">
                             <div class="testimonial-content">
                                 <p class="testimonial-text">
-                                    What impressed us most was the transparency in pricing and the quality of amenities
-                                    provided. The strategic location with excellent connectivity makes it a perfect
-                                    investment for the future. Housso has truly set a new standard in real estate
-                                    development.
+                                    The Golden Wattle is truly golden! Its prime Whitefield location and thoughtful
+                                    layout made it an easy choice. Our family is looking forward to building our forever
+                                    home here.
                                 </p>
-                                <div class="testimonial-author">Rajesh Patel, Mumbai</div>
+                                <div class="testimonial-author">Anita & Sanjay Nair </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">
+                                    Grevillea offers the best of both worlds — a peaceful environment and great
+                                    connectivity. It’s ideal for those looking for growth potential without the city
+                                    chaos.
+                                </p>
+                                <div class="testimonial-author">Meena Raj, Teacher & Investor
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">
+                                    Bellagio stood out for its location and affordability. Ananthapur is growing fast,
+                                    and Housso’s vision for this project is impressive. This is the kind of early
+                                    investment that pays off.
+                                </p>
+                                <div class="testimonial-author">Ajay & Priya Deshmukh</div>
                             </div>
                         </div>
                     </div>
@@ -485,11 +635,11 @@
                 </div>
                 <div class="footer-links-wrapper">
                     <h1 class="footer-links-title">Navigation</h1>
-                    <a href="#home" class="footer-links">HOME</a>
-                    <a href="#about" class="footer-links">ABOUT</a>
-                    <a href="#blogs" class="footer-links">BLOGS</a>
-                    <a href="#Careers" class="footer-links">CAREERS</a>
-                    <a href="#Contact Us" class="footer-links">CONTACT US</a>
+                    <a href="./index.html" class="footer-links">HOME</a>
+                    <a href="./about/about.html" class="footer-links">ABOUT</a>
+                    <a href="./Blogs/blogs.html" class="footer-links">BLOGS</a>
+                    <a href="./career/career.html" class="footer-links">CAREERS</a>
+                    <a href="./contactus/contact.html" class="footer-links">CONTACT US</a>
                 </div>
                 <div class="footer-social-media-wrapper">
                     <img src="./Images/facebook-icon.svg" alt="Facebook" class="footer-social-media-icon">
@@ -515,76 +665,97 @@
             </div>
         </footer>
     </main>
+    <script src="./navbar.js"></script>
     <script>
 
-        // ===== HAMBURGER MENU FUNCTIONALITY =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            const body = document.body;
-            const navLinkItems = document.querySelectorAll('.nav-link-items');
 
-            // Toggle mobile menu
-            function toggleMenu() {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                body.classList.toggle('menu-open');
-            }
+class ProjectFilter {
+    constructor() {
+        this.filterButtons = document.querySelectorAll('[data-filter]');
+        this.projectCards = document.querySelectorAll('.project-section-card[data-location]');
+        this.init();
+    }
 
-            // Close mobile menu
-            function closeMenu() {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                body.classList.remove('menu-open');
-            }
+    init() {
+        this.bindEvents();
+    }
 
-            // Event listeners
-            hamburger.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking on nav links
-            navLinkItems.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                    closeMenu();
-                }
-            });
-
-            // Close menu on escape key
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    closeMenu();
-                }
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 768) {
-                    closeMenu();
-                }
-            });
-
-            // Smooth scrolling for anchor links
-            navLinkItems.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
+    bindEvents() {
+        this.filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = button.getAttribute('data-filter');
+                this.filterProjects(filter);
+                this.updateActiveButton(button);
             });
         });
+    }
+
+    filterProjects(filter) {
+        this.projectCards.forEach(card => {
+            const cardLocation = card.getAttribute('data-location');
+            
+            if (cardLocation === filter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    updateActiveButton(activeButton) {
+        // Remove active class from all buttons
+        this.filterButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        activeButton.classList.add('active');
+    }
+
+    // Public method to filter projects programmatically
+    setFilter(filter) {
+        const button = document.querySelector(`[data-filter="${filter}"]`);
+        if (button) {
+            this.filterProjects(filter);
+            this.updateActiveButton(button);
+        }
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    window.projectFilter = new ProjectFilter();
+});
+
+// Alternative vanilla JavaScript approach (without class)
+function initProjectFilter() {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const projectCards = document.querySelectorAll('.project-section-card[data-location]');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                const cardLocation = card.getAttribute('data-location');
+                
+                if (cardLocation === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+}
         class GallerySlider {
             constructor(selector, options = {}) {
                 this.slider = document.querySelector(selector);

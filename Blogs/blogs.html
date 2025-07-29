@@ -1,0 +1,622 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .blog-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .blog-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            border-radius: 2px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .main-post-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px
+        }
+
+        .main-post {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .main-post-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-post-content {
+            padding: 24px;
+        }
+
+        .main-post-date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .main-post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .main-post-excerpt {
+            color: #5a6c7d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-post {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .sidebar-post-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-post:nth-child(2) .sidebar-post-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .sidebar-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-post-content {
+            padding: 20px;
+        }
+
+        .sidebar-post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .sidebar-post-date {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-post-excerpt {
+            color: #5a6c7d;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-read-more {
+            color: #27ae60;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        /* Additional Posts Section */
+        .additional-posts {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 2px;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .grid-post {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .grid-post-image {
+            width: 100%;
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-post:nth-child(1) .grid-post-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .grid-post:nth-child(2) .grid-post-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .grid-post:nth-child(3) .grid-post-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .grid-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-post-content {
+            padding: 20px;
+        }
+
+        .grid-post-date {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .grid-post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .grid-post-excerpt {
+            color: #5a6c7d;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .grid-read-more {
+            color: #3498db;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-section {
+                padding: 30px 15px;
+            }
+
+            .blog-title {
+                font-size: 1.8rem;
+            }
+
+            .main-post-content {
+                padding: 20px;
+            }
+
+            .main-post-title {
+                font-size: 1.3rem;
+            }
+
+            .sidebar-posts {
+                gap: 16px;
+            }
+
+            .additional-posts {
+                margin-top: 40px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .sidebar-post-content {
+                padding: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-section {
+                padding: 24px 10px;
+            }
+
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .main-post-image {
+                height: 160px;
+            }
+
+            .main-post-content {
+                padding: 16px;
+            }
+
+            .main-post-title {
+                font-size: 1.2rem;
+            }
+
+            .sidebar-post-image {
+                height: 120px;
+            }
+
+            .sidebar-post-content {
+                padding: 14px;
+            }
+
+            .sidebar-post-title {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .grid-post-image {
+                height: 140px;
+            }
+
+            .grid-post-content {
+                padding: 16px;
+            }
+
+            .grid-post-title {
+                font-size: 1rem;
+            }
+        }
+
+        
+    </style>
+
+    <link rel="stylesheet" href="../navbar.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo-wrapper">
+            <img src="../Images/housso_logo.png" alt="" width="130" height="46">
+         </div>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li class="nav-item">
+                <a href="../index.html" class="nav-link-items">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a href="../about/about.html" class="nav-link-items">ABOUT</a>
+            </li>
+            <li class="nav-item" id="projectDropdown">
+                <a href="#" class="nav-link-items">
+                    PROJECT
+                    <span class="dropdown-arrow">▼</span>
+                </a>
+                <div class="dropdown">
+                    <div class="dropdown-item" id="ongoingSubmenu">
+                        <a href="#" class="dropdown-link">
+                            Ongoing
+                            <span class="dropdown-arrow">▶</span>
+                        </a>
+                        <div class="submenu">
+                            <a href="../Projects/Project_Anasaa/anasaa.html" class="submenu-link">Anasaa</a>
+                            <a href="../Projects/Project_Cliffland/cliffland.html" class="submenu-link">Cliffland</a>
+                            <a href="../Projects/Project_Ohio/ohio.html" class="submenu-link">OHIO</a>
+                            <a href="../Projects/Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
+                            <a href="../Projects/Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
+                            <a href="../Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover Green</a>
+                            <a href="../Projects/Project_Inara/inara.html" class="submenu-link">Inara</a>
+                            <a href="../Projects/Project_The Golden Wattle/thegoldenwattle.html" class="submenu-link">The
+                                Golden Wattle</a>
+                            <a href="../Projects/Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
+                            <a href="../Projects/Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
+                            <a href="../Projects/Project_Grevillea/grevillea.html" class="submenu-link">Grevillea</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="./blog1.html" class="nav-link-items">BLOGS</a>
+            </li>
+            <li class="nav-item">
+                <a href="../career/career.html" class="nav-link-items">CAREERS</a>
+            </li>
+
+            <!-- Contact link for mobile menu -->
+            <div class="nav-link-contact mobile-contact">
+                <a href="../contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
+            </div>
+        </ul>
+
+        <!-- Desktop Contact Button -->
+        <div class="nav-link-contact desktop-contact">
+            <a href="../contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <section class="blog-section">
+        <div class="blog-header">
+            <h1 class="blog-title fade-in">BLOGS</h1>
+        </div>
+
+        <div class="blog-grid">
+            <article class="main-post-container">
+                <div class="main-post fade-in">
+                    <div class="main-post-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Modern residential complex" loading="lazy">
+                    </div>
+                    <div class="main-post-content">
+                        <div class="main-post-date">December 15, 2024</div>
+                        <h2 class="main-post-title">Why to invest in HOUSSO GREVILLEA?</h2>
+                        <p class="main-post-excerpt">
+                            Housso Grevillea is located in the neighborhood of the fastest-growing region of the city
+                            and is getting ready as the next residential and commercial destination. Discover the
+                            strategic advantages and future growth potential.....
+                        </p>
+                        <a href="./blog1.html" class="read-more-btn" onclick="readMore('main')">Read More</a>
+                    </div>
+                </div>
+                <div class="main-post fade-in">
+                    <div class="main-post-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Modern residential complex" loading="lazy">
+                    </div>
+                    <div class="main-post-content">
+                        <div class="main-post-date">December 5, 2024</div>
+                        <h2 class="main-post-title">Why Invest In Plots In North East Bangalore?</h2>
+                        <p class="main-post-excerpt">
+                            If you have landed on this article, most probably you are considering buying a plot in North
+                            East Bangalore. Throughout Bangalore, this region offers exceptional growth prospects...
+                        </p>
+                        <a href="./blog2.html" class="read-more-btn" onclick="readMore('main')">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+            <div class="sidebar-posts">
+                <article class="sidebar-post fade-in">
+                    <div class="sidebar-post-image">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Land investment benefits" loading="lazy">
+                    </div>
+                    <div class="sidebar-post-content">
+                        <h3 class="sidebar-post-title">Benefits Of Investing In Plots</h3>
+                        <div class="sidebar-post-date">December 10, 2024</div>
+                        <p class="sidebar-post-excerpt">
+                            It has been time and again proven that a piece of land can appreciate faster and higher
+                            compared to your investment in an Apartment. Learn about the long-term advantages.......
+                        </p>
+                        <a href="./blog3.html" class="sidebar-read-more" onclick="readMore('sidebar1')">Read More</a>
+                    </div>
+                </article>
+
+                <article class="sidebar-post fade-in">
+                    <div class="sidebar-post-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="North East Bangalore plots" loading="lazy">
+                    </div>
+                    <div class="sidebar-post-content">
+                        <h3 class="sidebar-post-title">Real Estate Market Trends 2024</h3>
+                        <div class="sidebar-post-date">November 28, 2024</div>
+                        <p class="sidebar-post-excerpt">
+                            The real estate market is experiencing significant shifts in 2024. Understanding these
+                            trends is crucial for making informed investment decisions in today’s market...
+                        </p>
+                        <a href="./blog4.html" class="sidebar-read-more" onclick="readMore('sidebar2')">Read More</a>
+                    </div>
+                </article>
+
+                <article class="sidebar-post fade-in">
+                    <div class="sidebar-post-image">
+                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Real estate market trends" loading="lazy">
+                    </div>
+                    <div class="sidebar-post-content">
+                        <h3 class="sidebar-post-title">Why Buy Land with Housso?</h3>
+                        <div class="sidebar-post-date">December 1, 2024</div>
+                        <p class="sidebar-post-excerpt">
+                            In a time when real estate choices are abundant, choosing the right developer is just as
+                            important. Learn why Housso’s locations, amenities, and trust make it a better way of
+                            life...
+                        </p>
+                        <a href="./blog5.html" class="sidebar-read-more" onclick="readMore('sidebar3')">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+
+        
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="footer-logo-wrapper">
+                <img src="../Images/footer-logo.png" alt="Footer Logo" class="footer-logo">
+                <div class="footer-address-wrapper">
+                    <div class="footer-address">
+                        <div class="footer-address-title">Corporate Office</div>
+                        <div class="footer-address-subtitle">No. 4C-162, 2nd Floor, 2nd Main, Above SBI Bank,
+                            Kasturinagar, Bangalore 560043</div>
+                    </div>
+                    <div class="footer-address">
+                        <div class="footer-address-title">Branch Office</div>
+                        <div class="footer-address-subtitle">D No:1-1262-1, 1st Floor, Sai's Arcade, Rudrampeta
+                            Bypass, Beside Renault Showroom, Ananthapur</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links-wrapper">
+                <h1 class="footer-links-title">Navigation</h1>
+                <a href="../index.html" class="footer-links">HOME</a>
+                <a href="../about/about.html" class="footer-links">ABOUT</a>
+                <a href="./blogs.html" class="footer-links">BLOGS</a>
+                <a href="../career/career.html" class="footer-links">CAREERS</a>
+                <a href="../contactus/contact.html" class="footer-links">CONTACT US</a>
+            </div>
+            <div class="footer-social-media-wrapper">
+                <img src="../Images/facebook-icon.svg" alt="Facebook" class="footer-social-media-icon">
+                <img src="../Images/instagram-icon.svg" alt="Instagram" class="footer-social-media-icon">
+                <img src="../Images/linkedin-icon.svg" alt="Linkedin" class="footer-social-media-icon">
+                <img src="../Images/X-icon.svg" alt="X" class="footer-social-media-icon">
+            </div>
+            <div class="footer-form-wrapper">
+                <div class="footer-form-title-wrapper">
+                    <h1 class="footer-form-title">Don’t miss a thing!</h1>
+                    <p class="footer-form-subtitle">Subscribe with Email and loads of interesting news will be sent
+                        to you on a daily basis.</p>
+                </div>
+                <form action="" class="footer-form">
+                    <input type="name" placeholder="Enter your Nme" class="footer-form-input">
+                    <input type="email" placeholder="Enter your email" class="footer-form-input">
+                    <button type="submit" class="footer-form-button">GET IN TOUCH</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text">Copyright © 2025. All rights reserved </p>
+        </div>
+    </footer>
+
+    <script src="../navbar.js"></script>
+</body>
+
+</html>
