@@ -112,9 +112,9 @@
             margin-bottom: 20px;
         }
 
-        .read-more-btn {
-            background: #2c3e50;
-            color: white;
+        /* .read-more-btn {
+            background: transparent;
+            color: black;
             padding: 10px 24px;
             border: none;
             border-radius: 20px;
@@ -123,7 +123,59 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border: 1px solid black;
+            text-decoration: none;
+            overflow: hidden;
+        } */
+
+        .read-more-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            background: transparent;
+            color: black;
+            padding: 7px 24px;
+            border: 1px solid black;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-block;
         }
+
+        .read-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #0088cc, #a7d129);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            z-index: -1;
+            /* Removed border-radius - let parent handle the clipping */
+        }
+
+        .read-more-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .read-more-btn:hover {
+            color: white;
+        }
+
+        .read-more-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+
 
         .sidebar-posts {
             display: flex;
@@ -396,8 +448,6 @@
                 font-size: 1rem;
             }
         }
-
-        
     </style>
 
     <link rel="stylesheet" href="../navbar.css">
@@ -407,7 +457,7 @@
     <nav class="navbar">
         <div class="nav-logo-wrapper">
             <img src="../Images/housso_logo.png" alt="" width="130" height="46">
-         </div>
+        </div>
 
         <!-- Desktop Navigation Links -->
         <ul class="nav-links" id="navLinks">
@@ -434,9 +484,11 @@
                             <a href="../Projects/Project_Ohio/ohio.html" class="submenu-link">OHIO</a>
                             <a href="../Projects/Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
                             <a href="../Projects/Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
-                            <a href="../Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover Green</a>
+                            <a href="../Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover
+                                Green</a>
                             <a href="../Projects/Project_Inara/inara.html" class="submenu-link">Inara</a>
-                            <a href="../Projects/Project_The Golden Wattle/thegoldenwattle.html" class="submenu-link">The
+                            <a href="../Projects/Project_The Golden Wattle/thegoldenwattle.html"
+                                class="submenu-link">The
                                 Golden Wattle</a>
                             <a href="../Projects/Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
                             <a href="../Projects/Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
@@ -486,11 +538,18 @@
                         <div class="main-post-date">December 15, 2024</div>
                         <h2 class="main-post-title">Why to invest in HOUSSO GREVILLEA?</h2>
                         <p class="main-post-excerpt">
-                            Housso Grevillea is located in the neighborhood of the fastest-growing region of the city
-                            and is getting ready as the next residential and commercial destination. Discover the
-                            strategic advantages and future growth potential.....
+                            In the fast-paced world of real estate, a growing number of investors are now looking
+                            towards farmland investments—and for good reason. With increasing urban saturation and a
+                            rising interest in sustainable living, farmland in North East Bangalore is becoming a prime
+                            opportunity for those seeking long-term returns, lifestyle benefits, and asset security.
+                            <br><br>
+                            At Housso, we bring you exclusive farmland projects like Inara and Anasaa, where you don’t
+                            just buy land—you invest in a serene, eco-conscious future....
+
                         </p>
-                        <a href="./blog1.html" class="read-more-btn" onclick="readMore('main')">Read More</a>
+                        <a href="./blog1.html" class="read-more-btn" onclick="readMore('main')"><span>Read
+                                More</span></a>
+
                     </div>
                 </div>
                 <div class="main-post fade-in">
@@ -502,8 +561,14 @@
                         <div class="main-post-date">December 5, 2024</div>
                         <h2 class="main-post-title">Why Invest In Plots In North East Bangalore?</h2>
                         <p class="main-post-excerpt">
-                            If you have landed on this article, most probably you are considering buying a plot in North
-                            East Bangalore. Throughout Bangalore, this region offers exceptional growth prospects...
+                            As Bangalore continues to grow as India’s tech capital, certain zones within the city have
+                            emerged as real estate hotspots. North East Bangalore is one such region that’s witnessing
+                            rapid infrastructure development, rising demand, and exceptional appreciation potential. For
+                            savvy investors, this is the perfect time to explore plot investments—and Housso is your
+                            trusted partner to make that move smartly and securely.
+                            <br><br>
+                            North East Bangalore is close to key hubs like the Kempegowda International Airport, Manyata
+                            Tech Park, and Whitefield...
                         </p>
                         <a href="./blog2.html" class="read-more-btn" onclick="readMore('main')">Read More</a>
                     </div>
@@ -523,7 +588,7 @@
                             It has been time and again proven that a piece of land can appreciate faster and higher
                             compared to your investment in an Apartment. Learn about the long-term advantages.......
                         </p>
-                        <a href="./blog3.html" class="sidebar-read-more" onclick="readMore('sidebar1')">Read More</a>
+                        <a href="./blog3.html" class="read-more-btn" onclick="readMore('sidebar1')">Read More</a>
                     </div>
                 </article>
 
@@ -539,7 +604,7 @@
                             The real estate market is experiencing significant shifts in 2024. Understanding these
                             trends is crucial for making informed investment decisions in today’s market...
                         </p>
-                        <a href="./blog4.html" class="sidebar-read-more" onclick="readMore('sidebar2')">Read More</a>
+                        <a href="./blog4.html" class="read-more-btn" onclick="readMore('sidebar2')">Read More</a>
                     </div>
                 </article>
 
@@ -556,14 +621,14 @@
                             important. Learn why Housso’s locations, amenities, and trust make it a better way of
                             life...
                         </p>
-                        <a href="./blog5.html" class="sidebar-read-more" onclick="readMore('sidebar3')">Read More</a>
+                        <a href="./blog5.html" class="read-more-btn" onclick="readMore('sidebar3')">Read More</a>
                     </div>
                 </article>
             </div>
         </div>
 
 
-        
+
 
     </section>
 
