@@ -28,53 +28,27 @@
                     <a href="../../index.html" class="nav-link-items">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../about/about.html" class="nav-link-items">ABOUT</a>
-                </li>
-                <li class="nav-item" id="projectDropdown">
-                    <a href="#" class="nav-link-items">
-                        PROJECT
-                        <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <div class="dropdown">
-                        <div class="dropdown-item" id="ongoingSubmenu">
-                            <a href="#" class="dropdown-link">
-                                Ongoing
-                                <span class="dropdown-arrow">▶</span>
-                            </a>
-                            <div class="submenu">
-                                <a href="../Project_Anasaa/anasaa.html" class="submenu-link">Anasaa</a>
-                                <a href="../Project_Cliffland/cliffland.html" class="submenu-link">Cliffland</a>
-                                <a href="../Project_Ohio/ohio.html" class="submenu-link">OHIO</a>
-                                <a href="../Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
-                                <a href="../Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
-                                <a href="./clovergreen.html" class="submenu-link">Clover Green</a>
-                                <a href="../Project_Inara/inara.html" class="submenu-link">Inara</a>
-                                <a href="../Project_The Golden Wattle/thegoldenwattle.html" class="submenu-link">The
-                                    Golden Wattle</a>
-                                <a href="../Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
-                                <a href="../Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
-                                <a href="../Project_Grevillea/grevillea.html" class="submenu-link">Grevillea</a>
-                            </div>
-                        </div>
-
-                    </div>
+                    <a href="#about" class="nav-link-items">Overview </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../Blogs/blogs.html" class="nav-link-items">BLOGS</a>
+                    <a href="#amenities" class="nav-link-items">Amenities </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../career/career.html" class="nav-link-items">CAREERS</a>
+                    <a href="#specification" class="nav-link-items">SPECIFICATIONS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#location" class="nav-link-items">LOCATION </a>
                 </li>
 
                 <!-- Contact link for mobile menu -->
                 <div class="nav-link-contact mobile-contact">
-                    <a href="../../contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
+                    <a href="#footer" class="nav-link-items-contact">CONTACT</a>
                 </div>
             </ul>
 
             <!-- Desktop Contact Button -->
             <div class="nav-link-contact desktop-contact">
-                <a href="../../contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
+                <a href="#footer" class="nav-link-items-contact">CONTACT</a>
             </div>
 
             <!-- Hamburger Menu Button -->
@@ -101,21 +75,24 @@
                             <div class="form-field-wrapper">
                                 <label for="name" class="form-label">Name*</label>
                                 <div>
-                                    <input type="name" placeholder="First Name" class="form-input" />
-                                    <input type="name" placeholder="Last Name" class="form-input" />
+                                    <input type="name" placeholder="First Name" class="form-input" required />
+                                    <input type="name" placeholder="Last Name" class="form-input" required />
                                 </div>
                             </div>
                             <div class="form-field-wrapper">
                                 <label for="phone" class="form-label">Phone Numebr*</label>
                                 <div>
-                                    <input type="phone" placeholder="+91" class="form-input" />
-                                    <input type="phone" placeholder="Phone Number" class="form-input" />
+                                    <input type="phone" placeholder="+91" class="form-input" required />
+                                    <input type="phone" placeholder="Phone Number" class="form-input" required />
                                 </div>
                             </div>
                             <div class="form-field-wrapper">
                                 <label for="email" class="form-label">Email*</label>
-                                <input type="email" placeholder="Email" class="form-input email-input" />
+                                <input type="email" placeholder="Email" class="form-input email-input" required />
                             </div>
+                            <div class="submit-btn">
+                                <button type="submit">Submit</button>
+                              </div>
                         </div>
                     </form>
                 </div>
@@ -385,7 +362,7 @@
         </section>
 
 
-        <div class="container-ctc">
+        <div class="container-ctc" id="location">
             <div class="header-ctc">
                 <h1 class="title-ctc">LOCATION ADVANTAGES</h1>
             </div>
@@ -456,7 +433,7 @@
         
 
 
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <div class="footer-wrapper">
                 <div class="footer-logo-wrapper">
                     <img src="../Images/footer-logo.png" alt="Footer Logo" class="footer-logo">

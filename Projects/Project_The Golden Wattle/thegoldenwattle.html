@@ -19,62 +19,36 @@
             <div class="nav-logo-wrapper">
                 <img src="../Images/housso_logo.png" alt="" width="130" height="46">
             </div>
-    
+
             <!-- Desktop Navigation Links -->
             <ul class="nav-links" id="navLinks">
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link-items">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../about/about.html" class="nav-link-items">ABOUT</a>
-                </li>
-                <li class="nav-item" id="projectDropdown">
-                    <a href="#" class="nav-link-items">
-                        PROJECT
-                        <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <div class="dropdown">
-                        <div class="dropdown-item" id="ongoingSubmenu">
-                            <a href="#" class="dropdown-link">
-                                Ongoing
-                                <span class="dropdown-arrow">▶</span>
-                            </a>
-                            <div class="submenu">
-                                <a href="../Project_Anasaa/anasaa.html" class="submenu-link">Anasaa</a>
-                                <a href="../Project_Cliffland/cliffland.html" class="submenu-link">Cliffland</a>
-                                <a href="../Project_Ohio/ohio.html" class="submenu-link">OHIO</a>
-                                <a href="../Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
-                                <a href="../Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
-                                <a href="../Project_Clover Green/clovergreen.html" class="submenu-link">Clover Green</a>
-                                <a href="../Project_Inara/inara.html" class="submenu-link">Inara</a>
-                                <a href="./thegoldenwattle.html" class="submenu-link">The
-                                    Golden Wattle</a>
-                                <a href="../Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
-                                <a href="../Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
-                                <a href="../Project_Grevillea/grevillea.html" class="submenu-link">Grevillea</a>
-                            </div>
-                        </div>
-    
-                    </div>
+                    <a href="#about" class="nav-link-items">Overview </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../Blogs/blogs.html" class="nav-link-items">BLOGS</a>
+                    <a href="#amenities" class="nav-link-items">Amenities </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../career/career.html" class="nav-link-items">CAREERS</a>
+                    <a href="#specification" class="nav-link-items">SPECIFICATIONS</a>
                 </li>
-    
+                <li class="nav-item">
+                    <a href="#location" class="nav-link-items">LOCATION </a>
+                </li>
+
                 <!-- Contact link for mobile menu -->
                 <div class="nav-link-contact mobile-contact">
-                    <a href="../../contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
+                    <a href="#footer" class="nav-link-items-contact">CONTACT</a>
                 </div>
             </ul>
-    
+
             <!-- Desktop Contact Button -->
             <div class="nav-link-contact desktop-contact">
-                <a href="../../contactus/contact.html" class="nav-link-items-contact">CONTACT</a>
+                <a href="#footer" class="nav-link-items-contact">CONTACT</a>
             </div>
-    
+
             <!-- Hamburger Menu Button -->
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -99,20 +73,23 @@
                             <div class="form-field-wrapper">
                                 <label for="name" class="form-label">Name*</label>
                                 <div>
-                                    <input type="name" placeholder="First Name" class="form-input" />
-                                    <input type="name" placeholder="Last Name" class="form-input" />
+                                    <input type="name" placeholder="First Name" class="form-input" required />
+                                    <input type="name" placeholder="Last Name" class="form-input" required />
                                 </div>
                             </div>
                             <div class="form-field-wrapper">
                                 <label for="phone" class="form-label">Phone Numebr*</label>
                                 <div>
-                                    <input type="phone" placeholder="+91" class="form-input" />
-                                    <input type="phone" placeholder="Phone Number" class="form-input" />
+                                    <input type="phone" placeholder="+91" class="form-input" required />
+                                    <input type="phone" placeholder="Phone Number" class="form-input" required />
                                 </div>
                             </div>
                             <div class="form-field-wrapper">
                                 <label for="email" class="form-label">Email*</label>
-                                <input type="email" placeholder="Email" class="form-input email-input" />
+                                <input type="email" placeholder="Email" class="form-input email-input" required />
+                            </div>
+                            <div class="submit-btn">
+                                <button type="submit">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -132,10 +109,15 @@
                     <div class="about-section-content">
                         <div class="about-section-content-title-wrapper">
                             <h1 class="about-section-content-title">The Golden Wattle
- -                                 Elegance Meets Opportunity in the Heart of Whitefield</h1>
-                            <p class="about-section-content-subtitle">We are proud to present The Golden Wattle – a premium plotted development by Housso, where luxury and location come together to offer an unmatched investment and lifestyle opportunity.
+                                - Elegance Meets Opportunity in the Heart of Whitefield</h1>
+                            <p class="about-section-content-subtitle">We are proud to present The Golden Wattle – a
+                                premium plotted development by Housso, where luxury and location come together to offer
+                                an unmatched investment and lifestyle opportunity.
                                 <br><br>
-                                Now is the perfect time to secure your own plot in Whitefield, one of Bengaluru’s most vibrant and fast-developing areas. Surrounded by established infrastructure, tech hubs, schools, hospitals, and lifestyle amenities, The Golden Wattle places you at the center of everything that matters.
+                                Now is the perfect time to secure your own plot in Whitefield, one of Bengaluru’s most
+                                vibrant and fast-developing areas. Surrounded by established infrastructure, tech hubs,
+                                schools, hospitals, and lifestyle amenities, The Golden Wattle places you at the center
+                                of everything that matters.
 
                             </p>
                         </div>
@@ -186,7 +168,8 @@
                         <div class="usp-card-title-wrapper">
                             <h1 class="usp-card-title">Nature-Integrated Living
                             </h1>
-                            <p class="usp-card-subtitle">Lush green surroundings are designed to promote wellness and a peaceful lifestyle.
+                            <p class="usp-card-subtitle">Lush green surroundings are designed to promote wellness and a
+                                peaceful lifestyle.
                             </p>
                         </div>
                         <div class="usp-card-image-wrapper">
@@ -197,7 +180,8 @@
                         <div class="usp-card-title-wrapper">
                             <h1 class="usp-card-title">Modern Infrastructure
                             </h1>
-                            <p class="usp-card-subtitle">Well-planned villa plots with wide roads, drainage, electricity, and water supply.
+                            <p class="usp-card-subtitle">Well-planned villa plots with wide roads, drainage,
+                                electricity, and water supply.
                             </p>
                         </div>
                         <div class="usp-card-image-wrapper">
@@ -208,7 +192,8 @@
                         <div class="usp-card-title-wrapper">
                             <h1 class="usp-card-title">Secure Gated Community
                             </h1>
-                            <p class="usp-card-subtitle">24/7 security and compound fencing for safe, family-friendly living.
+                            <p class="usp-card-subtitle">24/7 security and compound fencing for safe, family-friendly
+                                living.
                             </p>
                         </div>
                         <div class="usp-card-image-wrapper">
@@ -219,7 +204,8 @@
                         <div class="usp-card-title-wrapper">
                             <h1 class="usp-card-title">High Investment Potential
                             </h1>
-                            <p class="usp-card-subtitle">Located in a rapidly growing corridor, ensuring strong appreciation and returns.
+                            <p class="usp-card-subtitle">Located in a rapidly growing corridor, ensuring strong
+                                appreciation and returns.
                             </p>
                         </div>
                         <div class="usp-card-image-wrapper">
@@ -313,18 +299,18 @@
         </section>
 
 
-        <div class="container-ctc">
+        <div class="container-ctc" id="location">
             <div class="header-ctc">
                 <h1 class="title-ctc">LOCATION ADVANTAGES</h1>
             </div>
-        
+
             <div class="main-content-ctc">
                 <div class="map-section-ctc">
                     <div class="map-container pulse-animation">
                         <img src="../Images/The-Golden-wattle-rout.jpg" alt="Location Map" class="map-image-ctc">
                     </div>
                 </div>
-        
+
                 <div class="location-panel-ctc">
                     <div class="time-group-ctc first-group-ctc">
                         <div class="time-header-ctc" onclick="toggleGroup(this)">
@@ -332,55 +318,66 @@
                             <span class="arrow-ctc">▼</span>
                         </div>
                         <div class="locations-list-ctc">
-                            <div class="location-item-ctc"><span class="location-name-ctc">Axis Hospital</span><span class="location-time-ctc">2 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">KR Sai Baba Ashram</span><span class="location-time-ctc">3 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">Axis Hospital</span><span
+                                    class="location-time-ctc">2 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">KR Sai Baba
+                                    Ashram</span><span class="location-time-ctc">3 min</span></div>
                         </div>
                     </div>
-        
+
                     <div class="time-group-ctc">
                         <div class="time-header-ctc" onclick="toggleGroup(this)">
                             <span>5 to 10 Mins</span>
                             <span class="arrow-ctc">▼</span>
                         </div>
                         <div class="locations-list-ctc">
-                            <div class="location-item-ctc"><span class="location-name-ctc">Whitefield Metro Station</span><span class="location-time-ctc">5 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">Whitefield Railway Station</span><span class="location-time-ctc">5 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">Whitefield Metro
+                                    Station</span><span class="location-time-ctc">5 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">Whitefield Railway
+                                    Station</span><span class="location-time-ctc">5 min</span></div>
                         </div>
                     </div>
-        
+
                     <div class="time-group-ctc">
                         <div class="time-header-ctc" onclick="toggleGroup(this)">
                             <span>10 to 15 Mins</span>
                             <span class="arrow-ctc">▼</span>
                         </div>
                         <div class="locations-list-ctc">
-                            <div class="location-item-ctc"><span class="location-name-ctc">Manipal Hospital</span><span class="location-time-ctc">10 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">Prestige Shantiniketan Mall</span><span class="location-time-ctc">10 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">ITPL Tech Park</span><span class="location-time-ctc">10 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">KR Orion Uptown Mall</span><span class="location-time-ctc">10 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">Manipal Hospital</span><span
+                                    class="location-time-ctc">10 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">Prestige Shantiniketan
+                                    Mall</span><span class="location-time-ctc">10 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">ITPL Tech Park</span><span
+                                    class="location-time-ctc">10 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">KR Orion Uptown
+                                    Mall</span><span class="location-time-ctc">10 min</span></div>
                         </div>
                     </div>
-        
+
                     <div class="time-group-ctc">
                         <div class="time-header-ctc" onclick="toggleGroup(this)">
                             <span>20 to 30 Mins</span>
                             <span class="arrow-ctc">▼</span>
                         </div>
                         <div class="locations-list-ctc">
-                            <div class="location-item-ctc"><span class="location-name-ctc">KR Puram Railway Station</span><span class="location-time-ctc">15 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">Phoenix Market City Mall</span><span class="location-time-ctc">20 min</span></div>
-                            <div class="location-item-ctc"><span class="location-name-ctc">KR Kempegowda International Airport</span><span class="location-time-ctc">45 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">KR Puram Railway
+                                    Station</span><span class="location-time-ctc">15 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">Phoenix Market City
+                                    Mall</span><span class="location-time-ctc">20 min</span></div>
+                            <div class="location-item-ctc"><span class="location-name-ctc">KR Kempegowda International
+                                    Airport</span><span class="location-time-ctc">45 min</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
 
 
 
 
-        <footer class="footer">
+
+        <footer class="footer" id="footer">
             <div class="footer-wrapper">
                 <div class="footer-logo-wrapper">
                     <img src="../Images/footer-logo.png" alt="Footer Logo" class="footer-logo">
@@ -763,28 +760,28 @@
         });
 
         function toggleGroup(header) {
-    const timeGroup = header.parentElement;
-    const isActive = timeGroup.classList.contains('active');
-    
-    // Close all groups
-    document.querySelectorAll('.time-group-ctc').forEach(group => {
-        group.classList.remove('active');
-    });
-    
-    // If the clicked group wasn't active, open it
-    if (!isActive) {
-        timeGroup.classList.add('active');
-    }
-}
+            const timeGroup = header.parentElement;
+            const isActive = timeGroup.classList.contains('active');
 
-// Initialize - ensure only first group is open
-document.addEventListener('DOMContentLoaded', function() {
-    // Open only the first group
-    const firstGroup = document.querySelector('.first-group-ctc');
-    if (firstGroup) {
-        firstGroup.classList.add('active');
-    }
-});
+            // Close all groups
+            document.querySelectorAll('.time-group-ctc').forEach(group => {
+                group.classList.remove('active');
+            });
+
+            // If the clicked group wasn't active, open it
+            if (!isActive) {
+                timeGroup.classList.add('active');
+            }
+        }
+
+        // Initialize - ensure only first group is open
+        document.addEventListener('DOMContentLoaded', function () {
+            // Open only the first group
+            const firstGroup = document.querySelector('.first-group-ctc');
+            if (firstGroup) {
+                firstGroup.classList.add('active');
+            }
+        });
 
         // Add ripple effect to headers
         document.querySelectorAll('.collapse-header').forEach(header => {

@@ -185,6 +185,7 @@
     border-radius: 6px;
     margin: 0.2rem;
     border-left: 3px solid transparent;
+    text-transform: uppercase;
 }
 
 .submenu-link:hover {
