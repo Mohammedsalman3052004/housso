@@ -338,6 +338,105 @@
             font-size: 0.85rem;
         }
 
+        /* Blog Banner Styles */
+        .blog-banner {
+            width: 100%;
+            height: 400px;
+            /* background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="blog-pattern" patternUnits="userSpaceOnUse" width="100" height="80"><rect x="10" y="10" width="30" height="20" rx="2" fill="%23fff" opacity="0.1"/><rect x="50" y="15" width="35" height="15" rx="2" fill="%23fff" opacity="0.08"/><rect x="15" y="40" width="25" height="25" rx="2" fill="%23fff" opacity="0.12"/><rect x="50" y="45" width="30" height="10" rx="1" fill="%23fff" opacity="0.09"/></pattern></defs><rect width="100%" height="100%" fill="%23f0f4f8"/><rect width="100%" height="100%" fill="url(%23blog-pattern)"/><g transform="translate(150,100)"><rect x="0" y="0" width="40" height="30" rx="3" fill="%23fff" opacity="0.15"/><rect x="0" y="35" width="60" height="8" rx="1" fill="%23fff" opacity="0.12"/><rect x="0" y="48" width="50" height="6" rx="1" fill="%23fff" opacity="0.1"/></g><g transform="translate(300,120)"><rect x="0" y="0" width="35" height="25" rx="3" fill="%23fff" opacity="0.13"/><rect x="0" y="30" width="55" height="7" rx="1" fill="%23fff" opacity="0.11"/><rect x="0" y="42" width="45" height="5" rx="1" fill="%23fff" opacity="0.09"/></g><g transform="translate(500,80)"><rect x="0" y="0" width="45" height="35" rx="3" fill="%23fff" opacity="0.16"/><rect x="0" y="40" width="65" height="9" rx="1" fill="%23fff" opacity="0.13"/><rect x="0" y="54" width="55" height="7" rx="1" fill="%23fff" opacity="0.11"/></g><g transform="translate(700,110)"><rect x="0" y="0" width="38" height="28" rx="3" fill="%23fff" opacity="0.14"/><rect x="0" y="33" width="58" height="8" rx="1" fill="%23fff" opacity="0.12"/><rect x="0" y="46" width="48" height="6" rx="1" fill="%23fff" opacity="0.1"/></g><g transform="translate(900,90)"><rect x="0" y="0" width="42" height="32" rx="3" fill="%23fff" opacity="0.17"/><rect x="0" y="37" width="62" height="9" rx="1" fill="%23fff" opacity="0.14"/><rect x="0" y="51" width="52" height="7" rx="1" fill="%23fff" opacity="0.12"/></g></svg>') center/cover; */
+            background-image: url(../Images/home\ page\ banner.webp);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                    rgba(26, 26, 26, 0.8) 0%,
+                    rgba(26, 26, 26, 0.6) 50%,
+                    rgba(26, 26, 26, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .blog-banner-overlay {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .blog-banner-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .blog-banner-title {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .blog-breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb-link {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .breadcrumb-link:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        .breadcrumb-arrow {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .breadcrumb-current {
+            color: white;
+            font-weight: 500;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .blog-grid {
@@ -356,6 +455,14 @@
 
             .section-title {
                 font-size: 1.6rem;
+            }
+
+            .blog-banner {
+                height: 350px;
+            }
+
+            .blog-banner-title {
+                font-size: 3.5rem;
             }
         }
 
@@ -396,6 +503,19 @@
 
             .sidebar-post-content {
                 padding: 16px;
+            }
+
+            .blog-banner {
+                height: 300px;
+            }
+
+            .blog-banner-title {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+
+            .blog-breadcrumb {
+                font-size: 1rem;
             }
         }
 
@@ -446,6 +566,26 @@
 
             .grid-post-title {
                 font-size: 1rem;
+            }
+
+            .blog-banner {
+                height: 250px;
+            }
+
+            .blog-banner-title {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+                margin-bottom: 1rem;
+            }
+
+            .blog-breadcrumb {
+                font-size: 0.9rem;
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+
+            .breadcrumb-arrow {
+                transform: rotate(90deg);
             }
         }
     </style>
@@ -521,10 +661,25 @@
             <span></span>
         </div>
     </nav>
-    <section class="blog-section">
-        <div class="blog-header">
-            <h1 class="blog-title fade-in">BLOGS</h1>
+
+    <!-- Blog Banner Section -->
+    <section class="blog-banner">
+        <div class="blog-banner-overlay">
+            <div class="blog-banner-content">
+                <h1 class="blog-banner-title">BLOGS</h1>
+                <div class="blog-breadcrumb">
+                    <a href="../index.html" class="breadcrumb-link">Homepage</a>
+                    <span class="breadcrumb-arrow">→</span>
+                    <span class="breadcrumb-current">Blogs</span>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section class="blog-section">
+        <!-- <div class="blog-header">
+            <h1 class="blog-title fade-in">BLOGS</h1>
+        </div> -->
 
         <div class="blog-grid">
             <article class="main-post-container">
@@ -542,7 +697,7 @@
                             rising interest in sustainable living, farmland in North East Bangalore is becoming a prime
                             opportunity for those seeking long-term returns, lifestyle benefits, and asset security.
                             <br><br>
-                            At Housso, we bring you exclusive farmland projects like Inara and Anasaa, where you don’t
+                            At Housso, we bring you exclusive farmland projects like Inara and Anasaa, where you don't
                             just buy land—you invest in a serene, eco-conscious future....
 
                         </p>
@@ -560,8 +715,8 @@
                         <div class="main-post-date">December 5, 2024</div>
                         <h2 class="main-post-title">Why Invest In Plots In North East Bangalore?</h2>
                         <p class="main-post-excerpt">
-                            As Bangalore continues to grow as India’s tech capital, certain zones within the city have
-                            emerged as real estate hotspots. North East Bangalore is one such region that’s witnessing
+                            As Bangalore continues to grow as India's tech capital, certain zones within the city have
+                            emerged as real estate hotspots. North East Bangalore is one such region that's witnessing
                             rapid infrastructure development, rising demand, and exceptional appreciation potential. For
                             savvy investors, this is the perfect time to explore plot investments—and Housso is your
                             trusted partner to make that move smartly and securely.
@@ -601,7 +756,7 @@
                         <div class="sidebar-post-date">November 28, 2024</div>
                         <p class="sidebar-post-excerpt">
                             The real estate market is experiencing significant shifts in 2024. Understanding these
-                            trends is crucial for making informed investment decisions in today’s market...
+                            trends is crucial for making informed investment decisions in today's market...
                         </p>
                         <a href="./blog4.html" class="read-more-btn" onclick="readMore('sidebar2')">Read More</a>
                     </div>
@@ -617,7 +772,7 @@
                         <div class="sidebar-post-date">December 1, 2024</div>
                         <p class="sidebar-post-excerpt">
                             In a time when real estate choices are abundant, choosing the right developer is just as
-                            important. Learn why Housso’s locations, amenities, and trust make it a better way of
+                            important. Learn why Housso's locations, amenities, and trust make it a better way of
                             life...
                         </p>
                         <a href="./blog5.html" class="read-more-btn" onclick="readMore('sidebar3')">Read More</a>
