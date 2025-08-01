@@ -99,8 +99,8 @@
             width: 60px;
             height: 60px;
             margin: 0 auto 20px;
-            background: #000000;
-            border-radius: 50%;
+            /* background: #000000; */
+            /* border-radius: 50%; */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -225,45 +225,46 @@
 
 
         .mission-vision-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-}
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
 
-.mission-vision {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
+        .mission-vision {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
 
-.vision-block {
-    flex-direction: row; /* default: content left, image right */
-}
+        .vision-block {
+            flex-direction: row;
+            /* default: content left, image right */
+        }
 
-.mission-block {
-    flex-direction: row-reverse; /* image left, content right */
-}
+        .mission-block {
+            flex-direction: row-reverse;
+            /* image left, content right */
+        }
 
-/* Responsive layout */
-@media (max-width: 768px) {
-    .mission-vision {
-        flex-direction: column !important;
-        text-align: center;
-    }
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .mission-vision {
+                flex-direction: column !important;
+                text-align: center;
+            }
 
-    .mission-image {
-        order: 0;
-    }
+            .mission-image {
+                order: 0;
+            }
 
-    .mission-content {
-        order: 1;
-    }
+            .mission-content {
+                order: 1;
+            }
 
-    .mission-vision h2 {
-        font-size: 1.8rem;
-    }
-}
-
+            .mission-vision h2 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -297,9 +298,11 @@
                             <a href="../Projects/Project_Ohio/ohio.html" class="submenu-link">OHIA</a>
                             <a href="../Projects/Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
                             <a href="../Projects/Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
-                            <a href="../Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover Green</a>
+                            <a href="../Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover
+                                Green</a>
                             <a href="../Projects/Project_Inara/inara.html" class="submenu-link">Inara</a>
-                            <a href="../Projects/Project_The Golden Wattle/thegoldenwattle.html" class="submenu-link">The
+                            <a href="../Projects/Project_The Golden Wattle/thegoldenwattle.html"
+                                class="submenu-link">The
                                 Golden Wattle</a>
                             <a href="../Projects/Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
                             <a href="../Projects/Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
@@ -338,7 +341,7 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                <img src="../Images/about us.webp"
                     alt="Team collaboration">
             </div>
             <div class="hero-content">
@@ -355,22 +358,24 @@
         <section class="stats-section">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-icon">🏗️</div>
+
+                    <img src="../Images/about4.svg" alt="" class="stat-icon" width="50" height="50">
+
                     <div class="stat-number">5+</div>
                     <div class="stat-label">Ongoing Projects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon">🏢</div>
+                    <img src="../Images/about1.svg" alt="" class="stat-icon" width="50" height="50">
                     <div class="stat-number">2+</div>
                     <div class="stat-label">Upcoming Projects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon">🏘️</div>
+                    <img src="../Images/about3.svg" alt="" class="stat-icon" width="50" height="50">
                     <div class="stat-number">5+</div>
                     <div class="stat-label">Total Projects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon">👥</div>
+                    <img src="../Images/about2.svg" alt="" class="stat-icon" width="50" height="50">
                     <div class="stat-number">1000+</div>
                     <div class="stat-label">Happy Customers</div>
                 </div>
@@ -379,41 +384,43 @@
 
         <!-- Mission & Vision Section -->
         <!-- Mission & Vision Section -->
-<section class="mission-vision-wrapper">
-    <!-- Vision block -->
-    <div class="mission-vision vision-block">
-        <div class="mission-content">
-            <h2>MISSION & VISION</h2>
-            <div class="vision-section">
-                <h3>Vision</h3>
-                <p>Constantly endeavor to be the preferred land developer in South India, and operate without
-                    compromising on our core values, for the benefit of our customers. Furthermore, to make sure
-                    that we strive the hardest and deliver the pinnacle of quality and service as promised to the
-                    buyers and give the true essence of value for money and making sure we add more value.</p>
+        <section class="mission-vision-wrapper">
+            <!-- Vision block -->
+            <div class="mission-vision vision-block">
+                <div class="mission-content">
+                    <h2>MISSION & VISION</h2>
+                    <div class="vision-section">
+                        <h3>Vision</h3>
+                        <p>Constantly endeavor to be the preferred land developer in South India, and operate without
+                            compromising on our core values, for the benefit of our customers. Furthermore, to make sure
+                            that we strive the hardest and deliver the pinnacle of quality and service as promised to
+                            the
+                            buyers and give the true essence of value for money and making sure we add more value.</p>
+                    </div>
+                </div>
+                <div class="mission-image">
+                    <img src="../Images/vision.webp"
+                        alt="Vision concept">
+                </div>
             </div>
-        </div>
-        <div class="mission-image">
-            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1000&q=80"
-                alt="Vision concept">
-        </div>
-    </div>
 
-    <!-- Mission block -->
-    <div class="mission-vision mission-block">
-        
-        <div class="mission-content">
-            <div class="mission-section">
-                <h3>Mission</h3>
-                <p>Our focus is to develop affordable gated communities at futuristic locations in South India and
-                    surpass the expectations of our customers with quality and innovation.</p>
+            <!-- Mission block -->
+            <div class="mission-vision mission-block">
+
+                <div class="mission-content">
+                    <div class="mission-section">
+                        <h3>Mission</h3>
+                        <p>Our focus is to develop affordable gated communities at futuristic locations in South India
+                            and
+                            surpass the expectations of our customers with quality and innovation.</p>
+                    </div>
+                </div>
+                <div class="mission-image">
+                    <img src="../Images/vision.webp"
+                        alt="Mission concept">
+                </div>
             </div>
-        </div>
-        <div class="mission-image">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80"
-                alt="Mission concept">
-        </div>
-    </div>
-</section>
+        </section>
 
 
 

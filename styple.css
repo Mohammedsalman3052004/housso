@@ -15,7 +15,7 @@ html {
 .hero-section {
   width: 100%;
   height: calc(100vh - 82px);
-  background-image: url(./Images/hero_background.png);
+  background-image: url(./Images/home\ page\ banner.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -254,12 +254,13 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin-bottom: 5rem;
 }
 .project-section-title-wrapper {
   width: 100%;
   text-align: center;
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 .project-section-title {
   color: #000;
