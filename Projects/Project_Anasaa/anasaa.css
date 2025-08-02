@@ -27,10 +27,11 @@ body {
 }
 .hero-section-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   text-align: left;
   gap: 5.44rem;
+  width: 98%;
 }
 .hero-section-content-wrapper {
   display: flex;
@@ -551,7 +552,7 @@ body {
 
 .time-header-ctc {
   padding: 15px 20px;
-  background: #4a4a4a;
+  background: #000;
   color: white;
   cursor: pointer;
   font-weight: 500;
@@ -1088,7 +1089,7 @@ body {
   /* Hero Section */
   .hero-section {
     height: auto;
-    /* min-height: 100vh; */
+    min-height: 70vh;
     padding: 2rem 0;
   }
 

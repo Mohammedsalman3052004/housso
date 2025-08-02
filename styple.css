@@ -12,6 +12,7 @@ html {
 
 /* Hero Section */
 
+
 .hero-section {
   width: 100%;
   height: calc(100vh - 82px);
@@ -21,48 +22,108 @@ html {
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .hero-section-content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  text-align: center;
-  gap: 2.13rem;
-  padding: 7.5rem;
+  text-align: left;
+  gap: 5.44rem;
+  width: 98%;
 }
 .hero-section-content-wrapper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  gap: 1.3rem;
+  text-align: left;
+  gap: 4.31rem;
 }
-.hero-section-title {
-  color: #fff;
-  text-align: center;
-  font-family: "Inria Serif";
-  font-size: 3.5rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 3rem;
-  letter-spacing: 0.0625rem;
-  width: 27.75rem;
+.hero-section-logo {
+  width: 19.625rem;
+  height: 7rem;
+  flex-shrink: 0;
+  aspect-ratio: 157/56;
 }
 .hero-section-subtitle {
   color: #fff;
-  text-align: center;
   font-family: Inter;
-  font-size: 2.2rem;
+  font-size: 2.66438rem;
   font-style: normal;
   font-weight: 400;
   line-height: 3rem;
   letter-spacing: 0.0625rem;
-  width: 41.375rem;
+  width: 26.6875rem;
 }
-
+.hero-section-form-wrapper {
+  display: flex;
+  padding: 1.5625rem 1.5625rem 2.47438rem 1.5625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5625rem;
+  background: var(--color-black-60, rgba(0, 0, 0, 0.6));
+}
+.form-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.form-title {
+  color: #fff;
+  font-family: Inter;
+  font-size: 1.18163rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+.form-subtitle {
+  color: #fff;
+  font-family: Inter;
+  font-size: 0.70313rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+.form-label {
+  color: #fff;
+  font-family: Inter;
+  font-size: 0.8135rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.3125rem;
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.form-input {
+  border-radius: 0.21875rem;
+  border: var(--stroke-weight-1, 1px) solid var(--color-azure-83, #ced4da);
+  background: #fff;
+  color: var(--totalenvironment-in-pale-sky, var(--color-grey-46, #6c757d));
+  font-family: var(--font-family-Font-1, Inter);
+  font-size: 0.82713rem;
+  font-style: normal;
+  font-weight: var(--font-weight-300, 300);
+  line-height: normal;
+  padding: 0.5rem;
+}
+.form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.53rem;
+  width: 100%;
+}
+.email-input {
+  width: 100%;
+}
 /* About Section */
 
 .about-section {
@@ -861,7 +922,7 @@ html {
 .footer-logo-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2rem;
 }
 .footer-logo {
   width: 11.9375rem;
@@ -975,7 +1036,7 @@ html {
   background-color: transparent;
   color: white;
   }
-.footer-form-button {
+/* .footer-form-button {
   margin-top: 1.19rem;
   background: #fff;
   box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.05);
@@ -992,7 +1053,7 @@ html {
   padding: 1rem 1.25rem;
   width: 9rem;
   height: 3rem;
-}
+} */
 .footer-copyright {
   display: flex;
   width: 100%;
@@ -1958,8 +2019,34 @@ html {
   }
 }
 
+}
 
 
+.submit-btn {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
+.submit-btn button {
+  padding: 10px 32px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+}
 
+/* Hover effect */
+.submit-btn button:hover {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.05);
 }

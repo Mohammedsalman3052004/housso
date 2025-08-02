@@ -115,7 +115,7 @@
                 <div class="job-listings">
                     <div class="job-item">
                         <div class="job-header" onclick="toggleJob(this)">
-                            <h3>Pro Sales Executive</h3>
+                            <h3>Pre Sales Executive</h3>
                             <span class="toggle-icon">−</span>
                         </div>
                         <div class="job-content active">
@@ -191,7 +191,7 @@
                             <div class="form-group">
                                 <select id="position" name="position" required>
                                     <option value="">Select Apply For</option>
-                                    <option value="pro-sales-executive">Pro Sales Executive</option>
+                                    <option value="pro-sales-executive">Pre Sales Executive</option>
                                     <option value="sales-manager">Sales Manager</option>
                                     <option value="sales-executive">Sales Executive</option>
                                 </select>
@@ -212,22 +212,21 @@
                             <textarea id="message" name="message" placeholder="Message" rows="4"></textarea>
                         </div>
 
-                        <div class="form-row file-upload-row">
-                            <div class="form-group file-upload-group">
-                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"
-                                    style="display: none;">
-                                <label for="resume" class="file-upload-label">
-                                    <span id="file-text">Select your file!</span>
-                                </label>
+                        <div class="form-group full-width">
+                            <div class="file-upload-container">
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" style="display: none;">
+                                <div class="file-upload-box" onclick="document.getElementById('resume').click()">
+                                    <div class="file-upload-content">
+                                        <div class="upload-icon">📎</div>
+                                        <span class="upload-text" id="upload-text">Choose File</span>
+                                        <span class="file-status" id="file-status">No file chosen</span>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="button" class="upload-btn"
-                                onclick="document.getElementById('resume').click()">
-                                UPLOAD RESUME
-                            </button>
                         </div>
 
                         <div class="form-submit">
-                            <button type="submit" class="submit-btn">Submit</button>
+                            <button type="submit" class="submit-btn">SUBMIT</button>
                         </div>
                     </form>
                 </div>
@@ -266,17 +265,31 @@
                 <img src="../Images/X-icon.svg" alt="X" class="footer-social-media-icon">
             </div>
             <div class="footer-form-wrapper">
-                <div class="footer-form-title-wrapper">
-                    <h1 class="footer-form-title">Don't miss a thing!</h1>
-                    <p class="footer-form-subtitle">Subscribe with Email and loads of interesting news will be sent
-                        to you on a daily basis.</p>
-                </div>
-                <form action="" class="footer-form">
-                    <input type="name" placeholder="Enter your Nme" class="footer-form-input">
-                    <input type="email" placeholder="Enter your email" class="footer-form-input">
-                    <button type="submit" class="footer-form-button">GET IN TOUCH</button>
-                </form>
-            </div>
+    <div class="footer-form-title-wrapper">
+        <h1 class="footer-form-title">Don't miss a thing!</h1>
+        <p class="footer-form-subtitle">
+            Subscribe with Email and loads of interesting news will be sent to you on a daily basis.
+        </p>
+    </div>
+    <form action="" class="footer-form">
+        <input type="text" name="name" placeholder="Enter your Name" class="footer-form-input" required>
+
+        <div class="phone-input-wrapper">
+            <select class="country-code-select" name="countryCode" required>
+                <option value="+91">+91 🇮🇳</option>
+                <option value="+1">+1 🇺🇸</option>
+                <option value="+44">+44 🇬🇧</option>
+                <option value="+971">+971 🇦🇪</option>
+                <!-- Add more as needed -->
+            </select>
+            <input type="tel" name="phone" placeholder="Enter your phone number" class="footer-form-input phone-number-input" required>
+        </div>
+
+        <input type="email" name="email" placeholder="Enter your email" class="footer-form-input" required>
+        <button type="submit" class="footer-form-button">Submit</button>
+    </form>
+</div>
+
         </div>
         <div class="footer-copyright">
             <p class="footer-copyright-text">Copyright © 2025. All rights reserved </p>
@@ -285,6 +298,22 @@
 
     <script src="./script.js"></script>
     <script src="../navbar.js"></script>
+    <script>
+        // File upload functionality
+        document.getElementById('resume').addEventListener('change', function(e) {
+            const fileStatus = document.getElementById('file-status');
+            const uploadText = document.getElementById('upload-text');
+            
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                fileStatus.textContent = fileName;
+                uploadText.textContent = 'File Selected';
+            } else {
+                fileStatus.textContent = 'No file chosen';
+                uploadText.textContent = 'Choose File';
+            }
+        });
+    </script>
 
     <style>
         /* Career Banner Styles */
@@ -386,6 +415,52 @@
             }
         }
 
+        /* File Upload Styles - Updated to match the image */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .file-upload-container {
+            width: 100%;
+        }
+
+        .file-upload-box {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-box:hover {
+            background-color: #e9ecef;
+            border-color: #4CAF50;
+        }
+
+        .file-upload-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .upload-icon {
+            font-size: 1.2rem;
+        }
+
+        .upload-text {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .file-status {
+            color: #666;
+            font-style: italic;
+            margin-left: auto;
+        }
+
         /* Responsive Design for Banner */
         @media (max-width: 1024px) {
             .career-banner {
@@ -414,7 +489,8 @@
 
         @media (max-width: 480px) {
             .career-banner {
-                height: 250px;
+                height: 450px;
+                padding-top: 4rem;
             }
 
             .career-banner-title {
@@ -433,7 +509,497 @@
                 transform: rotate(90deg);
             }
         }
+
+        /* Include all existing styles from your styles.css file */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #1a1a1a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #4CAF50;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4CAF50;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Career Section */
+        .career-section {
+            background-color: white;
+            padding: 2rem 0;
+            min-height: 80vh;
+        }
+
+        .career-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .career-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            /* margin-bottom: 1rem; */
+            letter-spacing: 2px;
+        }
+
+        .career-description {
+            font-size: 0.9rem;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .career-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Job Listings */
+        .job-listings {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .job-item {
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .job-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .job-header:hover {
+            background-color: #333;
+        }
+
+        .job-header h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .job-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .job-content.active {
+            padding: 1rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .job-content p {
+            margin-bottom: 0.5rem;
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.8rem;
+        }
+
+        .job-content ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.8rem;
+        }
+
+        .job-content li {
+            padding: 0.3rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .job-content li::before {
+            content: '•';
+            color: #4CAF50;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Application Form */
+        .application-form {
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            /* font-size: 1rem; */
+            transition: border-color 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background-color: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            /* min-height: 100px; */
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        /* ===== TABLET RESPONSIVE (768px - 1024px) ===== */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .career-banner {
+        height: 350px;
+    }
+
+    .career-banner-title {
+        font-size: 3.5rem;
+    }
+
+    .career-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .career-title {
+        font-size: 2.5rem;
+    }
+
+    .application-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .container {
+        padding: 0 30px;
+    }
+}
+
+/* ===== MOBILE RESPONSIVE (320px - 768px) ===== */
+@media screen and (max-width: 768px) {
+    .career-banner {
+        height: 300px;
+    }
+
+    .career-banner-title {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+    }
+
+    .career-breadcrumb {
+        font-size: 1rem;
+    }
+
+    .career-section {
+        padding: 1.5rem 0;
+    }
+
+    .career-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .career-title {
+        font-size: 2rem;
+    }
+    
+    .career-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .application-form {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+
+    .job-header {
+        padding: 1rem;
+    }
+    
+    .job-content.active {
+        padding: 1rem;
+    }
+
+    .job-header h3 {
+        font-size: 1rem;
+    }
+
+    .job-content p {
+        font-size: 0.85rem;
+    }
+
+    .job-content ul {
+        font-size: 0.85rem;
+    }
+
+    .form-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .file-upload-box {
+        padding: 0.8rem;
+    }
+
+    .file-upload-content {
+        font-size: 0.85rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+}
+
+/* ===== SMALL MOBILE (320px - 480px) ===== */
+@media screen and (max-width: 480px) {
+    .career-banner {
+        height: 450px;
+        padding-top: 4rem;
+    }
+
+    .career-banner-title {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+    }
+
+    .career-breadcrumb {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .breadcrumb-arrow {
+        transform: rotate(90deg);
+    }
+
+    .career-section {
+        padding: 1rem 0;
+    }
+    
+    .career-title {
+        font-size: 1.8rem;
+    }
+    
+    .job-header {
+        padding: 0.8rem;
+    }
+    
+    .job-content.active {
+        padding: 0.8rem;
+    }
+    
+    .application-form {
+        padding: 1rem;
+    }
+
+    .form-title {
+        font-size: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .file-upload-box {
+        padding: 0.7rem;
+    }
+
+    .file-upload-content {
+        font-size: 0.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .upload-text {
+        font-size: 0.8rem;
+    }
+
+    .file-status {
+        font-size: 0.75rem;
+        margin-left: 0;
+    }
+
+    .submit-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* ===== EXTRA SMALL MOBILE (max-width: 320px) ===== */
+@media screen and (max-width: 320px) {
+    .career-banner-title {
+        font-size: 1.8rem;
+    }
+
+    .career-breadcrumb {
+        font-size: 0.8rem;
+    }
+
+    .form-title {
+        font-size: 1rem;
+    }
+
+    .job-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .toggle-icon {
+        font-size: 1.2rem;
+    }
+}
     </style>
 </body>
-
 </html>

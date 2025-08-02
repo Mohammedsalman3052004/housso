@@ -1,571 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Career - Join Our Team</title>
-    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../navbar.css" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      /* Career Banner Styles */
+      .career-banner {
+        width: 100%;
+        height: 400px;
+        background-image: url("../Images/home page banner.webp");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .career-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 26, 26, 0.8) 0%,
+          rgba(26, 26, 26, 0.6) 50%,
+          rgba(26, 26, 26, 0.7) 100%
+        );
+        z-index: 1;
+      }
+
+      .career-banner-overlay {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .career-banner-content {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .career-banner-title {
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .career-breadcrumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      .breadcrumb-link {
+        color: #4caf50;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-weight: 500;
+      }
+
+      .breadcrumb-link:hover {
+        color: white;
+        text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+      }
+
+      .breadcrumb-arrow {
+        color: #4caf50;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .breadcrumb-current {
+        color: white;
+        font-weight: 500;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            overflow-x: hidden;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        /* Career Banner Styles */
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 0;
+      }
+
+      .contact-header {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 0 20px;
+      }
+
+      .contact-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+      }
+
+      .contact-subtitle {
+        font-size: 1.1rem;
+        color: #fff;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        padding: 0 40px;
+      }
+
+      /* Contact Information Section */
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .address-section {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 8px;
+        border-left: 4px solid #000000;
+      }
+
+      .address-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .address-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .office-info h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #34495e;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 5px;
+      }
+
+      .office-info p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .contact-method {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .contact-method:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: #000000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .contact-method h4 {
+        font-size: 1.1rem;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+
+      .contact-method p {
+        color: #666;
+        font-weight: 500;
+      }
+
+      .contact-method a {
+        color: #000000;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-method a:hover {
+        color: #2980b9;
+      }
+
+      /* Map Section */
+      .map-section {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .map-iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        filter: grayscale(20%);
+        transition: filter 0.3s ease;
+      }
+
+      .map-iframe:hover {
+        filter: grayscale(0%);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
         .career-banner {
-            width: 100%;
-            height: 400px;
-            background-image: url('../Images/home page banner.webp');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .career-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg,
-                    rgba(26, 26, 26, 0.8) 0%,
-                    rgba(26, 26, 26, 0.6) 50%,
-                    rgba(26, 26, 26, 0.7) 100%);
-            z-index: 1;
-        }
-
-        .career-banner-overlay {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .career-banner-content {
-            animation: fadeInUp 1s ease-out;
+          height: 350px;
         }
 
         .career-banner-title {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-family: 'Segoe UI', sans-serif;
+          font-size: 3.5rem;
         }
+      }
 
-        .career-breadcrumb {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .breadcrumb-link {
-            color: #4CAF50;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-
-        .breadcrumb-link:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-        }
-
-        .breadcrumb-arrow {
-            color: #4CAF50;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .breadcrumb-current {
-            color: white;
-            font-weight: 500;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 0;
-        }
-
-        .contact-header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 0 20px;
-        }
-
-        .contact-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .contact-subtitle {
-            font-size: 1.1rem;
-            color: #fff;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
+      @media (max-width: 968px) {
         .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding: 0 40px;
-        }
-
-        /* Contact Information Section */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .address-section {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid #000000;
-        }
-
-        .address-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 0 20px;
         }
 
         .address-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .office-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #34495e;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #000000;
-            padding-bottom: 5px;
-        }
-
-        .office-info p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
+          grid-template-columns: 1fr;
         }
 
         .contact-methods {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-title {
+          font-size: 2rem;
         }
 
-        .contact-method {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        .form-grid {
+          grid-template-columns: 1fr;
         }
 
-        .contact-method:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: #000000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .contact-method h4 {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .contact-method p {
-            color: #666;
-            font-weight: 500;
-        }
-
-        .contact-method a {
-            color: #000000;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-method a:hover {
-            color: #2980b9;
-        }
-
-        /* Map Section */
-        .map-section {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .contact-form {
+          padding: 25px;
         }
 
         .map-iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            filter: grayscale(20%);
-            transition: filter 0.3s ease;
+          height: 350px;
         }
 
-        .map-iframe:hover {
-            filter: grayscale(0%);
+        .career-banner {
+          height: 300px;
         }
 
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .career-banner {
-                height: 350px;
-            }
-
-            .career-banner-title {
-                font-size: 3.5rem;
-            }
+        .career-banner-title {
+          font-size: 2.8rem;
+          letter-spacing: 2px;
         }
 
-        @media (max-width: 968px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding: 0 20px;
-            }
+        .career-breadcrumb {
+          font-size: 1rem;
+        }
+      }
 
-            .address-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-methods {
-                grid-template-columns: 1fr;
-            }
+      @media (max-width: 480px) {
+        .contact-container {
+          padding: 40px 0;
         }
 
-        @media (max-width: 768px) {
-            .contact-title {
-                font-size: 2rem;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form {
-                padding: 25px;
-            }
-
-            .map-iframe {
-                height: 350px;
-            }
-
-            .career-banner {
-                height: 300px;
-            }
-
-            .career-banner-title {
-                font-size: 2.8rem;
-                letter-spacing: 2px;
-            }
-
-            .career-breadcrumb {
-                font-size: 1rem;
-            }
+        .contact-header {
+          margin-bottom: 30px;
         }
 
-        @media (max-width: 480px) {
-            .contact-container {
-                padding: 40px 0;
-            }
-
-            .contact-header {
-                margin-bottom: 30px;
-            }
-
-            .address-section {
-                padding: 20px;
-            }
-
-            .contact-method {
-                padding: 20px;
-            }
-
-            .career-banner {
-                height: 250px;
-            }
-
-            .career-banner-title {
-                font-size: 2.2rem;
-                letter-spacing: 1px;
-                margin-bottom: 1rem;
-            }
-
-            .career-breadcrumb {
-                font-size: 0.9rem;
-                flex-direction: column;
-                gap: 0.3rem;
-            }
-
-            .breadcrumb-arrow {
-                transform: rotate(90deg);
-            }
+        .address-section {
+          padding: 20px;
         }
+
+        .contact-method {
+          padding: 20px;
+        }
+
+        .career-banner {
+          height: 450px;
+          padding-top: 4rem;
+        }
+
+        .career-banner-title {
+          font-size: 2.2rem;
+          letter-spacing: 1px;
+          margin-bottom: 1rem;
+        }
+
+        .career-breadcrumb {
+          font-size: 0.9rem;
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+
+        .breadcrumb-arrow {
+          transform: rotate(90deg);
+        }
+      }
     </style>
-</head>
-<body>
-  <nav class="navbar">
-    <div class="nav-logo-wrapper">
-        <img src="../Images/housso_logo.png" alt="" width="130" height="46">
-    </div>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-logo-wrapper">
+        <img src="../Images/housso_logo.png" alt="" width="130" height="46" />
+      </div>
 
-    <!-- Desktop Navigation Links -->
-    <ul class="nav-links" id="navLinks">
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links" id="navLinks">
         <li class="nav-item">
-            <a href="../index.html" class="nav-link-items">HOME</a>
+          <a href="../index.html" class="nav-link-items">HOME</a>
         </li>
         <li class="nav-item">
-            <a href="../about/about.html" class="nav-link-items">ABOUT</a>
+          <a href="../about/about.html" class="nav-link-items">ABOUT</a>
         </li>
         <li class="nav-item" id="projectDropdown">
-            <a href="#" class="nav-link-items">
-                PROJECT
-                <span class="dropdown-arrow">▼</span>
-            </a>
-            <div class="dropdown">
-                <div class="dropdown-item" id="ongoingSubmenu">
-                    <a href="#" class="dropdown-link">
-                        Ongoing
-                        <span class="dropdown-arrow">▶</span>
-                    </a>
-                    <div class="submenu">
-                        <a href="../Projects/Project_Anasaa/anasaa.html" class="submenu-link">Anasaa</a>
-                        <a href="../Projects/Project_Ohio/ohio.html" class="submenu-link">OHIA</a>
-                        <a href="../Projects/Project_Soukya/soukya.html" class="submenu-link">Soukya</a>
-                        <a href="../Projects/Project_Elariaa/elariaa.html" class="submenu-link">Elariaa</a>
-                        <a href="../Projects/Project_Clover Green/clovergreen.html" class="submenu-link">Clover Green</a>
-                        <a href="../Projects/Project_Inara/inara.html" class="submenu-link">Inara</a>
-                        <a href="../Projects/Project_The Golden Wattle/thegoldenwattle.html" class="submenu-link">The
-                            Golden Wattle</a>
-                        <a href="../Projects/Project_Cedar/cedar.html" class="submenu-link">Cedar</a>
-                        <a href="../Projects/Project_Bellagio/bellagio.html" class="submenu-link">Bellagio</a>
-                        <a href="../Projects/Project_Grevillea/grevillea.html" class="submenu-link">Grevillea</a>
-                    </div>
-                </div>
-
+          <a href="#" class="nav-link-items">
+            PROJECT
+            <span class="dropdown-arrow">▼</span>
+          </a>
+          <div class="dropdown">
+            <div class="dropdown-item" id="ongoingSubmenu">
+              <a href="#" class="dropdown-link">
+                Ongoing
+                <span class="dropdown-arrow">▶</span>
+              </a>
+              <div class="submenu">
+                <a
+                  href="../Projects/Project_Anasaa/anasaa.html"
+                  class="submenu-link"
+                  >Anasaa</a
+                >
+                <a
+                  href="../Projects/Project_Ohio/ohio.html"
+                  class="submenu-link"
+                  >OHIA</a
+                >
+                <a
+                  href="../Projects/Project_Soukya/soukya.html"
+                  class="submenu-link"
+                  >Soukya</a
+                >
+                <a
+                  href="../Projects/Project_Elariaa/elariaa.html"
+                  class="submenu-link"
+                  >Elariaa</a
+                >
+                <a
+                  href="../Projects/Project_Clover Green/clovergreen.html"
+                  class="submenu-link"
+                  >Clover Green</a
+                >
+                <a
+                  href="../Projects/Project_Inara/inara.html"
+                  class="submenu-link"
+                  >Inara</a
+                >
+                <a
+                  href="../Projects/Project_The Golden Wattle/thegoldenwattle.html"
+                  class="submenu-link"
+                  >The Golden Wattle</a
+                >
+                <a
+                  href="../Projects/Project_Cedar/cedar.html"
+                  class="submenu-link"
+                  >Cedar</a
+                >
+                <a
+                  href="../Projects/Project_Bellagio/bellagio.html"
+                  class="submenu-link"
+                  >Bellagio</a
+                >
+                <a
+                  href="../Projects/Project_Grevillea/grevillea.html"
+                  class="submenu-link"
+                  >Grevillea</a
+                >
+              </div>
             </div>
+          </div>
         </li>
         <li class="nav-item">
-            <a href="../Blogs/blogs.html" class="nav-link-items">BLOGS</a>
+          <a href="../Blogs/blogs.html" class="nav-link-items">BLOGS</a>
         </li>
         <li class="nav-item">
-            <a href="../career/career.html" class="nav-link-items">CAREER</a>
+          <a href="../career/career.html" class="nav-link-items">CAREER</a>
         </li>
 
         <!-- Contact link for mobile menu -->
         <div class="nav-link-contact mobile-contact">
-            <a href="./contact.html" class="nav-link-items-contact">CONTACT</a>
+          <a href="./contact.html" class="nav-link-items-contact">CONTACT</a>
         </div>
-    </ul>
+      </ul>
 
-    <!-- Desktop Contact Button -->
-    <div class="nav-link-contact desktop-contact">
+      <!-- Desktop Contact Button -->
+      <div class="nav-link-contact desktop-contact">
         <a href="./contact.html" class="nav-link-items-contact">CONTACT</a>
-    </div>
+      </div>
 
-    <!-- Hamburger Menu Button -->
-    <div class="hamburger" id="hamburger">
+      <!-- Hamburger Menu Button -->
+      <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
-    </div>
-</nav>
+      </div>
+    </nav>
 
     <!-- Career Banner Section -->
     <section class="career-banner">
-        <div class="career-banner-overlay">
-            <div class="career-banner-content">
-                <h1 class="career-banner-title">Contact Us</h1>
-                <p class="contact-subtitle">
-                    Ready to build your future with us? We're always looking for talented individuals who share our passion for excellence in real estate development. Explore career opportunities and become part of our growing family.
-                </p>
-                <div class="career-breadcrumb">
-                    <a href="../index.html" class="breadcrumb-link">Homepage</a>
-                    <span class="breadcrumb-arrow">→</span>
-                    <span class="breadcrumb-current">Career</span>
-                </div>
-            </div>
+      <div class="career-banner-overlay">
+        <div class="career-banner-content">
+          <h1 class="career-banner-title">Contact Us</h1>
+          <p class="contact-subtitle">
+            Ready to build your future with us? We're always looking for
+            talented individuals who share our passion for excellence in real
+            estate development. Explore career opportunities and become part of
+            our growing family.
+          </p>
+          <div class="career-breadcrumb">
+            <a href="../index.html" class="breadcrumb-link">Homepage</a>
+            <span class="breadcrumb-arrow">→</span>
+            <span class="breadcrumb-current">Career</span>
+          </div>
         </div>
+      </div>
     </section>
 
     <div class="contact-container">
-        <!-- <div class="contact-header">
+      <!-- <div class="contact-header">
             <h1 class="contact-title">JOIN OUR TEAM</h1>
             <p class="contact-subtitle">
                 Ready to build your future with us? We're always looking for talented individuals who share our passion for excellence in real estate development. Explore career opportunities and become part of our growing family.
             </p>
         </div> -->
 
-        <div class="contact-content">
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <div class="address-section">
-                    <h3 class="address-title">
-                        📍 Our Locations
-                    </h3>
-                    <div class="address-grid">
-                        <div class="office-info">
-                            <h4>Corporate Office</h4>
-                            <p>
-                                No. 4C-162, 2nd Floor, 2nd Main,<br>
-                                Above SBI Bank, Kasturi Nagar,<br>
-                                Bangalore - 560043
-                            </p>
-                        </div>
-                        <div class="office-info">
-                            <h4>Branch Office</h4>
-                            <p>
-                                Plot No. 1-262-1, 1st Floor, Sai's<br>
-                                Arcade, Rudrampeta Bypass,<br>
-                                Beside Renault Showroom,<br>
-                                Ananthapur - 515001
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <div class="contact-icon">📞</div>
-                        <h4>Phone</h4>
-                        <p><a href="tel:+919845050161">+91 9845050161</a></p>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">✉️</div>
-                        <h4>E-Mail</h4>
-                        <p><a href="mailto:sales@housso.co.in">sales@housso.co.in</a></p>
-                    </div>
-                </div>
+      <div class="contact-content">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <div class="address-section">
+            <h3 class="address-title">📍 Our Locations</h3>
+            <div class="address-grid">
+              <div class="office-info">
+                <h4>Corporate Office</h4>
+                <p>
+                  No. 4C-162, 2nd Floor, 2nd Main,<br />
+                  Above SBI Bank, Kasturi Nagar,<br />
+                  Bangalore - 560043
+                </p>
+              </div>
+              <div class="office-info">
+                <h4>Branch Office</h4>
+                <p>
+                  Plot No. 1-262-1, 1st Floor, Sai's<br />
+                  Arcade, Rudrampeta Bypass,<br />
+                  Beside Renault Showroom,<br />
+                  Ananthapur - 515001
+                </p>
+              </div>
             </div>
+          </div>
 
-            <!-- Map Section -->
-            <div class="map-section">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.0101699333!2d77.97953009999999!3d13.224678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3badff671b9655cb%3A0xdde32b260d393565!2sHOUSSO%20INARA!5e0!3m2!1sen!2sin!4v1753704383724!5m2!1sen!2sin"
-                    class="map-iframe"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">📞</div>
+              <h4>Phone</h4>
+              <p><a href="tel:+919845050161">+91 9845050161</a></p>
             </div>
+            <div class="contact-method">
+              <div class="contact-icon">✉️</div>
+              <h4>E-Mail</h4>
+              <p><a href="mailto:sales@housso.co.in">sales@housso.co.in</a></p>
+            </div>
+          </div>
         </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.0101699333!2d77.97953009999999!3d13.224678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3badff671b9655cb%3A0xdde32b260d393565!2sHOUSSO%20INARA!5e0!3m2!1sen!2sin!4v1753704383724!5m2!1sen!2sin"
+            class="map-iframe"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
       <div class="footer-wrapper">
-          <div class="footer-logo-wrapper">
-              <img src="../Images/footer-logo.png" alt="Footer Logo" class="footer-logo">
-              <div class="footer-address-wrapper">
-                  <div class="footer-address">
-                      <div class="footer-address-title">Corporate Office</div>
-                      <div class="footer-address-subtitle">No. 4C-162, 2nd Floor, 2nd Main, Above SBI Bank,
-                          Kasturinagar, Bangalore 560043</div>
-                  </div>
-                  <div class="footer-address">
-                      <div class="footer-address-title">Branch Office</div>
-                      <div class="footer-address-subtitle">D No:1-1262-1, 1st Floor, Sai's Arcade, Rudrampeta
-                          Bypass, Beside Renault Showroom, Ananthapur</div>
-                  </div>
+        <div class="footer-logo-wrapper">
+          <img
+            src="../Images/footer-logo.png"
+            alt="Footer Logo"
+            class="footer-logo"
+          />
+          <div class="footer-address-wrapper">
+            <div class="footer-address">
+              <div class="footer-address-title">Corporate Office</div>
+              <div class="footer-address-subtitle">
+                No. 4C-162, 2nd Floor, 2nd Main, Above SBI Bank, Kasturinagar,
+                Bangalore 560043
               </div>
-          </div>
-          <div class="footer-links-wrapper">
-              <h1 class="footer-links-title">Navigation</h1>
-              <a href="../index.html" class="footer-links">HOME</a>
-              <a href="./about.html" class="footer-links">ABOUT</a>
-              <a href="../Blogs/blogs.html" class="footer-links">BLOGS</a>
-              <a href="../career/career.html" class="footer-links">CAREER</a>
-              <a href="../contactus/contact.html" class="footer-links">CONTACT US</a>
-          </div>
-          <div class="footer-social-media-wrapper">
-              <img src="../Images/facebook-icon.svg" alt="Facebook" class="footer-social-media-icon">
-              <img src="../Images/instagram-icon.svg" alt="Instagram" class="footer-social-media-icon">
-              <img src="../Images/linkedin-icon.svg" alt="Linkedin" class="footer-social-media-icon">
-              <img src="../Images/X-icon.svg" alt="X" class="footer-social-media-icon">
-          </div>
-          <div class="footer-form-wrapper">
-              <div class="footer-form-title-wrapper">
-                  <h1 class="footer-form-title">Don't miss a thing!</h1>
-                  <p class="footer-form-subtitle">Subscribe with Email and loads of interesting news will be sent
-                      to you on a daily basis.</p>
+            </div>
+            <div class="footer-address">
+              <div class="footer-address-title">Branch Office</div>
+              <div class="footer-address-subtitle">
+                D No:1-1262-1, 1st Floor, Sai's Arcade, Rudrampeta Bypass,
+                Beside Renault Showroom, Ananthapur
               </div>
-              <form action="" class="footer-form">
-                  <input type="name" placeholder="Enter your Nme" class="footer-form-input">
-                  <input type="email" placeholder="Enter your email" class="footer-form-input">
-                  <button type="submit" class="footer-form-button">GET IN TOUCH</button>
-              </form>
+            </div>
           </div>
+        </div>
+        <div class="footer-links-wrapper">
+          <h1 class="footer-links-title">Navigation</h1>
+          <a href="../index.html" class="footer-links">HOME</a>
+          <a href="./about.html" class="footer-links">ABOUT</a>
+          <a href="../Blogs/blogs.html" class="footer-links">BLOGS</a>
+          <a href="../career/career.html" class="footer-links">CAREER</a>
+          <a href="../contactus/contact.html" class="footer-links"
+            >CONTACT US</a
+          >
+        </div>
+        <div class="footer-social-media-wrapper">
+          <img
+            src="../Images/facebook-icon.svg"
+            alt="Facebook"
+            class="footer-social-media-icon"
+          />
+          <img
+            src="../Images/instagram-icon.svg"
+            alt="Instagram"
+            class="footer-social-media-icon"
+          />
+          <img
+            src="../Images/linkedin-icon.svg"
+            alt="Linkedin"
+            class="footer-social-media-icon"
+          />
+          <img
+            src="../Images/X-icon.svg"
+            alt="X"
+            class="footer-social-media-icon"
+          />
+        </div>
+        <div class="footer-form-wrapper">
+          <div class="footer-form-title-wrapper">
+            <h1 class="footer-form-title">Don’t miss a thing!</h1>
+            <p class="footer-form-subtitle">
+              Subscribe with Email and loads of interesting news will be sent to
+              you on a daily basis.
+            </p>
+          </div>
+          <form action="" class="footer-form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your Name"
+              class="footer-form-input"
+              required
+            />
+
+            <div class="phone-input-wrapper">
+              <select class="country-code-select" name="countryCode" required>
+                <option value="+91">+91 🇮🇳</option>
+                <option value="+1">+1 🇺🇸</option>
+                <option value="+44">+44 🇬🇧</option>
+                <option value="+971">+971 🇦🇪</option>
+                <!-- Add more as needed -->
+              </select>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter your phone number"
+                class="footer-form-input phone-number-input"
+                required
+              />
+            </div>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              class="footer-form-input"
+              required
+            />
+            <button type="submit" class="footer-form-button">Submit</button>
+          </form>
+        </div>
       </div>
       <div class="footer-copyright">
-          <p class="footer-copyright-text">Copyright © 2025. All rights reserved </p>
+        <p class="footer-copyright-text">
+          Copyright © 2025. All rights reserved
+        </p>
       </div>
-  </footer>
+    </footer>
 
-    <script>
+    <!-- <script>
 
         // ===== HAMBURGER MENU FUNCTIONALITY =====
         document.addEventListener('DOMContentLoaded', function () {
@@ -636,7 +738,7 @@
             });
         });
 
-    </script>
+    </script> -->
     <script src="../navbar.js"></script>
-</body>
+  </body>
 </html>

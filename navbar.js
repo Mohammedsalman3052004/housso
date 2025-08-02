@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const projectDropdown = document.getElementById('projectDropdown');
+    const ongoingSubmenu = document.getElementById('ongoingSubmenu');
+    const submenu = ongoingSubmenu.querySelector('.submenu');
+
+    // Toggle for mobile dropdown
+    projectDropdown.addEventListener('click', function (e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // Prevent top-level nav default
+            submenu.classList.toggle('show-submenu');
+        }
+    });
+
+    // Ensure submenu links are clickable
+    submenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            // Let link behave normally and redirect
+            e.stopPropagation();
+        });
+    });
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const body = document.body;
