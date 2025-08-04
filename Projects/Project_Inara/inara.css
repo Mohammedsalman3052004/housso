@@ -23,7 +23,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
   }
   .hero-section-content {
