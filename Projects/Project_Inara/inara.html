@@ -12,6 +12,102 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../navbar.css" />
+    <style>
+      .gallery-sectionn {
+        width: 100%;
+        background-color: #f5f5f5;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery-container {
+        width: 100%;
+        height: 70vh;
+        min-height: 400px;
+        position: relative;
+      }
+
+      .gallery-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .gallery-slide {
+        width: 100%;
+        height: 100%;
+        flex: 0 0 100%;
+        position: relative;
+      }
+
+      .gallery-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #333;
+        border-radius: 50%;
+      }
+
+      .gallery-prev {
+        left: 20px;
+      }
+
+      .gallery-next {
+        right: 20px;
+      }
+
+      .gallery-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .gallery-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .gallery-dot.active {
+        background-color: #fff;
+      }
+
+      /* Section spacing */
+      .section-spacing {
+        height: 100px;
+        /* background-color: #f5f5f5; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #333;
+      }
+    </style>
   </head>
 
   <body>
@@ -629,23 +725,53 @@
         </div>
       </div>
 
-      <section class="gallery-section">
-        <h2 class="gallery-title">Gallery</h2>
+      <div class="section-spacing">GALLERY</div>
 
-        <div class="gallery-slider" id="gallerySlider">
-          <div class="slider-wrapper">
-            <!-- Loading indicator -->
-            <div class="loading" id="loading"></div>
-
-            <!-- Slides will be dynamically inserted here -->
+      <!-- Gallery Section -->
+      <section class="gallery-sectionn">
+        <div class="gallery-container">
+          <div class="gallery-wrapper">
+            <!-- Gallery Slide 1 -->
+            <div class="gallery-slide">
+              <img src="./inara gallery 1.webp" alt="Gallery Image 1" />
+            </div>
+            <!-- Gallery Slide 2 -->
+            <div class="gallery-slide">
+              <img src="./inara gallery 2.webp" alt="Gallery Image 2" />
+            </div>
+            <!-- Gallery Slide 3 -->
+            <div class="gallery-slide">
+              <img src="./inara gallery 3.webp" alt="Gallery Image 3" />
+            </div>
+            <!-- Gallery Slide 4 -->
+            <div class="gallery-slide">
+              <img src="./inara gallery 4.webp" alt="Gallery Image 4" />
+            </div>
+            <!-- Gallery Slide 5 -->
+            <div class="gallery-slide">
+              <img src="./inara gallery 6.webp" alt="Gallery Image 5" />
+            </div>
           </div>
 
           <!-- Navigation Arrows -->
-          <button class="nav-arrow prev" id="prevBtn"></button>
-          <button class="nav-arrow next" id="nextBtn"></button>
+          <button
+            class="gallery-nav-btn gallery-prev"
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
+          <button class="gallery-nav-btn gallery-next" aria-label="Next image">
+            ›
+          </button>
 
-          <!-- Dots Indicator -->
-          <div class="dots-container" id="dotsContainer"></div>
+          <!-- Dots Navigation -->
+          <div class="gallery-dots">
+            <span class="gallery-dot active" data-slide="0"></span>
+            <span class="gallery-dot" data-slide="1"></span>
+            <span class="gallery-dot" data-slide="2"></span>
+            <span class="gallery-dot" data-slide="3"></span>
+            <span class="gallery-dot" data-slide="4"></span>
+          </div>
         </div>
       </section>
 
@@ -731,11 +857,14 @@
       <footer class="footer" id="footer">
         <div class="footer-wrapper">
           <div class="footer-logo-wrapper">
-            <img
-              src="../Images/footer-logo.png"
-              alt="Footer Logo"
-              class="footer-logo"
-            />
+            <a href="./inara.html" class="nav-logo-wrapper">
+              <img
+                src="../Images/inara logo.png"
+                alt=""
+                width="130"
+                height="46"
+              />
+            </a>
             <div class="footer-address-wrapper">
               <div class="footer-address">
                 <div class="footer-address-title">Corporate Office</div>
@@ -759,8 +888,12 @@
             <a href="../../about/about.html" class="footer-links">ABOUT</a>
             <a href="../../Blogs/blogs.html" class="footer-links">BLOGS</a>
             <a href="../../career/career.html" class="footer-links">CAREERS</a>
-            <a href="../channelpartner/channelpartner.html" class="footer-links">CHANNEL PARTNER</a>
-            <a href="../refer_company/refer.html" class="footer-links">REFER US</a>
+            <a href="../channelpartner/channelpartner.html" class="footer-links"
+              >CHANNEL PARTNER</a
+            >
+            <a href="../refer_company/refer.html" class="footer-links"
+              >REFER US</a
+            >
             <a href="../../contactus/contact.html" class="footer-links"
               >CONTACT US</a
             >
@@ -839,426 +972,238 @@
       </footer>
     </main>
     <script>
-      class GallerySlider {
-        constructor(selector, options = {}) {
-          this.slider = document.querySelector(selector);
-          this.sliderWrapper = this.slider.querySelector(".slider-wrapper");
-          this.prevBtn = this.slider.querySelector("#prevBtn");
-          this.nextBtn = this.slider.querySelector("#nextBtn");
-          this.dotsContainer = this.slider.querySelector("#dotsContainer");
-          this.loading = this.slider.querySelector("#loading");
-
-          this.currentSlide = 0;
-          this.autoPlayInterval = null;
-          this.progressInterval = null;
-
-          // Default options
-          this.options = {
-            autoPlay: true,
-            autoPlayDelay: 5000,
-            showThumbnails: true,
-            showProgress: true,
-            images: [
-              "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80",
-              "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
-              "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=2084&q=80",
-            ],
-            ...options,
-          };
-
-          this.init();
-        }
-
-        init() {
-          this.createSlides();
-          this.createDots();
-          this.bindEvents();
-          this.startAutoPlay();
-          this.hideLoading();
-        }
-
-        createSlides() {
-          this.options.images.forEach((image, index) => {
-            const slide = document.createElement("div");
-            slide.className = `slide ${index === 0 ? "active" : ""}`;
-            slide.style.backgroundImage = `url(${image})`;
-            this.sliderWrapper.appendChild(slide);
-          });
-
-          this.slides = this.sliderWrapper.querySelectorAll(".slide");
-        }
-
-        createDots() {
-          this.options.images.forEach((_, index) => {
-            const dot = document.createElement("div");
-            dot.className = `dot ${index === 0 ? "active" : ""}`;
-            dot.addEventListener("click", () => this.goToSlide(index));
-            this.dotsContainer.appendChild(dot);
-          });
-
-          this.dots = this.dotsContainer.querySelectorAll(".dot");
-        }
-
-        createThumbnails() {
-          if (!this.options.showThumbnails) return;
-
-          this.options.images.forEach((image, index) => {
-            const thumbnail = document.createElement("div");
-            thumbnail.className = `thumbnail ${index === 0 ? "active" : ""}`;
-            thumbnail.style.backgroundImage = `url(${image})`;
-            thumbnail.addEventListener("click", () => this.goToSlide(index));
-            this.thumbnailStrip.appendChild(thumbnail);
-          });
-
-          this.thumbnails = this.thumbnailStrip.querySelectorAll(".thumbnail");
-        }
-
-        bindEvents() {
-          this.prevBtn.addEventListener("click", () => this.prevSlide());
-          this.nextBtn.addEventListener("click", () => this.nextSlide());
-
-          // Keyboard navigation
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowLeft") this.prevSlide();
-            if (e.key === "ArrowRight") this.nextSlide();
-          });
-
-          // Touch/swipe support
-          let startX = 0;
-          let endX = 0;
-
-          this.slider.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-          });
-
-          this.slider.addEventListener("touchend", (e) => {
-            endX = e.changedTouches[0].clientX;
-            const diff = startX - endX;
-
-            if (Math.abs(diff) > 50) {
-              if (diff > 0) {
-                this.nextSlide();
-              } else {
-                this.prevSlide();
-              }
-            }
-          });
-
-          // Pause autoplay on hover
-          this.slider.addEventListener("mouseenter", () =>
-            this.pauseAutoPlay()
-          );
-          this.slider.addEventListener("mouseleave", () =>
-            this.startAutoPlay()
-          );
-        }
-
-        goToSlide(index) {
-          // Remove active classes
-          this.slides[this.currentSlide].classList.remove("active");
-          this.dots[this.currentSlide].classList.remove("active");
-
-          // Set new current slide
-          this.currentSlide = index;
-
-          // Add active classes
-          this.slides[this.currentSlide].classList.add("active");
-          this.dots[this.currentSlide].classList.add("active");
-        }
-
-        nextSlide() {
-          const next = (this.currentSlide + 1) % this.slides.length;
-          this.goToSlide(next);
-        }
-
-        prevSlide() {
-          const prev =
-            (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-          this.goToSlide(prev);
-        }
-
-        startAutoPlay() {
-          if (!this.options.autoPlay) return;
-
-          this.pauseAutoPlay();
-
-          this.autoPlayInterval = setInterval(() => {
-            this.nextSlide();
-          }, this.options.autoPlayDelay);
-        }
-
-        pauseAutoPlay() {
-          if (this.autoPlayInterval) {
-            clearInterval(this.autoPlayInterval);
-            this.autoPlayInterval = null;
-          }
-        }
-
-        hideLoading() {
-          setTimeout(() => {
-            this.loading.style.display = "none";
-          }, 1000);
-        }
-      }
-
-      // Initialize the gallery slider
-      document.addEventListener("DOMContentLoaded", function () {
-        const gallery = new GallerySlider("#gallerySlider", {
-          autoPlay: true,
-          autoPlayDelay: 5000,
-        });
-      });
-
-      // Testimonial Section Script coding
-
-      class TestimonialSlider {
+      // Gallery Auto Slider with Touch/Swipe Support
+      class GalleryAutoSlider {
         constructor() {
-          this.wrapper = document.querySelector(".testimonials-wrapper");
-          this.slides = document.querySelectorAll(".testimonial-slide");
-          this.dots = document.querySelectorAll(".dot");
-          this.currentSlide = 0;
-          this.totalSlides = this.slides.length;
+          this.galleryWrapper = document.querySelector(".gallery-wrapper");
+          this.galleryContainer = document.querySelector(".gallery-container");
+          this.gallerySlides = document.querySelectorAll(".gallery-slide");
+          this.galleryDots = document.querySelectorAll(".gallery-dot");
+          this.galleryPrevBtn = document.querySelector(".gallery-prev");
+          this.galleryNextBtn = document.querySelector(".gallery-next");
+          this.currentGalleryIndex = 0;
+          this.gallerySlideInterval = null;
+          this.galleryAutoSlideDelay = 5000; // 5 seconds
 
-          // Touch/Mouse event variables
-          this.isDragging = false;
-          this.startX = 0;
-          this.currentX = 0;
-          this.translateX = 0;
-          this.threshold = 100; // Minimum distance to trigger slide change
+          // Touch/Swipe variables
+          this.galleryStartX = 0;
+          this.galleryEndX = 0;
+          this.galleryStartY = 0;
+          this.galleryEndY = 0;
+          this.galleryIsDragging = false;
+          this.galleryMinSwipeDistance = 50;
 
-          this.init();
+          this.initGallerySlider();
         }
 
-        init() {
-          this.addEventListeners();
-          this.updateSlider();
-        }
+        initGallerySlider() {
+          if (!this.galleryWrapper || this.gallerySlides.length === 0) return;
 
-        addEventListeners() {
-          // Dot navigation
-          this.dots.forEach((dot, index) => {
-            dot.addEventListener("click", () => this.goToSlide(index));
+          // Set initial position
+          this.updateGallerySlider();
+
+          // Add click events to navigation buttons
+          this.galleryPrevBtn.addEventListener("click", () => {
+            this.prevGallerySlide();
           });
 
-          // Mouse events
-          this.wrapper.addEventListener(
-            "mousedown",
-            this.handleStart.bind(this)
-          );
-          this.wrapper.addEventListener(
-            "mousemove",
-            this.handleMove.bind(this)
-          );
-          this.wrapper.addEventListener("mouseup", this.handleEnd.bind(this));
-          this.wrapper.addEventListener(
-            "mouseleave",
-            this.handleEnd.bind(this)
-          );
+          this.galleryNextBtn.addEventListener("click", () => {
+            this.nextGallerySlide();
+          });
 
-          // Touch events
-          this.wrapper.addEventListener(
+          // Add click events to dots
+          this.galleryDots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+              this.goToGallerySlide(index);
+            });
+          });
+
+          // Add touch/mouse events
+          this.addGalleryTouchEvents();
+
+          // Start auto sliding
+          this.startGalleryAutoSlide();
+
+          // Pause on hover
+          this.galleryContainer.addEventListener("mouseenter", () => {
+            this.stopGalleryAutoSlide();
+          });
+
+          this.galleryContainer.addEventListener("mouseleave", () => {
+            this.startGalleryAutoSlide();
+          });
+        }
+
+        addGalleryTouchEvents() {
+          // Touch events for mobile
+          this.galleryContainer.addEventListener(
             "touchstart",
-            this.handleStart.bind(this)
+            (e) => {
+              this.handleGalleryTouchStart(e);
+            },
+            { passive: true }
           );
-          this.wrapper.addEventListener(
+
+          this.galleryContainer.addEventListener(
             "touchmove",
-            this.handleMove.bind(this)
-          );
-          this.wrapper.addEventListener("touchend", this.handleEnd.bind(this));
-
-          // Prevent context menu on long press
-          this.wrapper.addEventListener("contextmenu", (e) =>
-            e.preventDefault()
+            (e) => {
+              this.handleGalleryTouchMove(e);
+            },
+            { passive: true }
           );
 
-          // Keyboard navigation
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowLeft") this.prevSlide();
-            if (e.key === "ArrowRight") this.nextSlide();
+          this.galleryContainer.addEventListener(
+            "touchend",
+            (e) => {
+              this.handleGalleryTouchEnd(e);
+            },
+            { passive: true }
+          );
+
+          // Mouse events for desktop
+          this.galleryContainer.addEventListener("mousedown", (e) => {
+            this.handleGalleryMouseDown(e);
           });
 
-          // Auto-play (optional)
-          this.startAutoPlay();
+          this.galleryContainer.addEventListener("mousemove", (e) => {
+            this.handleGalleryMouseMove(e);
+          });
+
+          this.galleryContainer.addEventListener("mouseup", (e) => {
+            this.handleGalleryMouseUp(e);
+          });
+
+          this.galleryContainer.addEventListener("mouseleave", (e) => {
+            this.handleGalleryMouseUp(e);
+          });
+
+          // Prevent default drag behavior
+          this.galleryContainer.addEventListener("dragstart", (e) => {
+            e.preventDefault();
+          });
         }
 
-        handleStart(e) {
-          this.isDragging = true;
-          this.startX = this.getEventX(e);
-          this.wrapper.style.transition = "none";
-          this.wrapper.style.cursor = "grabbing";
-
-          // Stop auto-play when user interacts
-          this.stopAutoPlay();
+        // Touch event handlers
+        handleGalleryTouchStart(e) {
+          this.galleryStartX = e.touches[0].clientX;
+          this.galleryStartY = e.touches[0].clientY;
+          this.galleryIsDragging = true;
+          this.stopGalleryAutoSlide();
         }
 
-        handleMove(e) {
-          if (!this.isDragging) return;
-
-          e.preventDefault();
-          this.currentX = this.getEventX(e);
-          const diffX = this.currentX - this.startX;
-          const newTranslateX =
-            -this.currentSlide * 100 + (diffX / this.wrapper.offsetWidth) * 100;
-
-          this.wrapper.style.transform = `translateX(${newTranslateX}%)`;
+        handleGalleryTouchMove(e) {
+          if (!this.galleryIsDragging) return;
+          this.galleryEndX = e.touches[0].clientX;
+          this.galleryEndY = e.touches[0].clientY;
         }
 
-        handleEnd(e) {
-          if (!this.isDragging) return;
+        handleGalleryTouchEnd(e) {
+          if (!this.galleryIsDragging) return;
+          this.galleryIsDragging = false;
+          this.handleGallerySwipe();
+          this.startGalleryAutoSlide();
+        }
 
-          this.isDragging = false;
-          this.wrapper.style.cursor = "grab";
-          this.wrapper.style.transition = "transform 0.3s ease-out";
+        // Mouse event handlers
+        handleGalleryMouseDown(e) {
+          this.galleryStartX = e.clientX;
+          this.galleryStartY = e.clientY;
+          this.galleryIsDragging = true;
+          this.stopGalleryAutoSlide();
+        }
 
-          const diffX = this.currentX - this.startX;
+        handleGalleryMouseMove(e) {
+          if (!this.galleryIsDragging) return;
+          this.galleryEndX = e.clientX;
+          this.galleryEndY = e.clientY;
+        }
 
-          if (Math.abs(diffX) > this.threshold) {
-            if (diffX > 0) {
-              this.prevSlide();
+        handleGalleryMouseUp(e) {
+          if (!this.galleryIsDragging) return;
+          this.galleryIsDragging = false;
+          this.handleGallerySwipe();
+          this.startGalleryAutoSlide();
+        }
+
+        handleGallerySwipe() {
+          const deltaX = this.galleryStartX - this.galleryEndX;
+          const deltaY = Math.abs(this.galleryStartY - this.galleryEndY);
+
+          // Check if it's a horizontal swipe (not vertical scroll)
+          if (
+            Math.abs(deltaX) > this.galleryMinSwipeDistance &&
+            Math.abs(deltaX) > deltaY
+          ) {
+            if (deltaX > 0) {
+              // Swiped left - go to next slide
+              this.nextGallerySlide();
             } else {
-              this.nextSlide();
+              // Swiped right - go to previous slide
+              this.prevGallerySlide();
             }
-          } else {
-            this.updateSlider();
           }
-
-          // Restart auto-play after interaction
-          this.startAutoPlay();
         }
 
-        getEventX(e) {
-          return e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
-        }
-
-        goToSlide(index) {
-          this.currentSlide = index;
-          this.updateSlider();
-          this.stopAutoPlay();
-          this.startAutoPlay();
-        }
-
-        nextSlide() {
-          this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-          this.updateSlider();
-        }
-
-        prevSlide() {
-          this.currentSlide =
-            (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-          this.updateSlider();
-        }
-
-        updateSlider() {
-          // Update slider position
-          this.wrapper.style.transform = `translateX(-${
-            this.currentSlide * 100
-          }%)`;
+        updateGallerySlider() {
+          // Move the wrapper to show current slide
+          const translateX = -this.currentGalleryIndex * 100;
+          this.galleryWrapper.style.transform = `translateX(${translateX}%)`;
 
           // Update dots
-          this.dots.forEach((dot, index) => {
-            dot.classList.toggle("active", index === this.currentSlide);
+          this.galleryDots.forEach((dot, index) => {
+            if (index === this.currentGalleryIndex) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
           });
         }
 
-        startAutoPlay() {
-          this.stopAutoPlay();
-          this.autoPlayInterval = setInterval(() => {
-            this.nextSlide();
-          }, 5000); // Change slide every 5 seconds
+        goToGallerySlide(index) {
+          this.currentGalleryIndex = index;
+          this.updateGallerySlider();
+
+          // Restart auto slide timer
+          this.stopGalleryAutoSlide();
+          this.startGalleryAutoSlide();
         }
 
-        stopAutoPlay() {
-          if (this.autoPlayInterval) {
-            clearInterval(this.autoPlayInterval);
-            this.autoPlayInterval = null;
+        nextGallerySlide() {
+          this.currentGalleryIndex =
+            (this.currentGalleryIndex + 1) % this.gallerySlides.length;
+          this.updateGallerySlider();
+        }
+
+        prevGallerySlide() {
+          this.currentGalleryIndex =
+            this.currentGalleryIndex === 0
+              ? this.gallerySlides.length - 1
+              : this.currentGalleryIndex - 1;
+          this.updateGallerySlider();
+        }
+
+        startGalleryAutoSlide() {
+          this.stopGalleryAutoSlide(); // Clear any existing interval
+          this.gallerySlideInterval = setInterval(() => {
+            this.nextGallerySlide();
+          }, this.galleryAutoSlideDelay);
+        }
+
+        stopGalleryAutoSlide() {
+          if (this.gallerySlideInterval) {
+            clearInterval(this.gallerySlideInterval);
+            this.gallerySlideInterval = null;
           }
         }
       }
 
-      // Initialize the slider when DOM is loaded
+      // Initialize when DOM is loaded
       document.addEventListener("DOMContentLoaded", () => {
-        new TestimonialSlider();
+        // Small delay to ensure all elements are rendered
+        setTimeout(() => {
+          new GalleryAutoSlider();
+        }, 100);
       });
-
-      // Pause auto-play when page is not visible
-      document.addEventListener("visibilitychange", () => {
-        const slider = document.querySelector(".testimonials-wrapper");
-        if (slider && slider.sliderInstance) {
-          if (document.hidden) {
-            slider.sliderInstance.stopAutoPlay();
-          } else {
-            slider.sliderInstance.startAutoPlay();
-          }
-        }
-      });
-
-      function toggleGroup(header) {
-        const timeGroup = header.parentElement;
-        const isActive = timeGroup.classList.contains("active");
-
-        // Close all groups
-        document.querySelectorAll(".time-group-ctc").forEach((group) => {
-          group.classList.remove("active");
-        });
-
-        // If the clicked group wasn't active, open it
-        if (!isActive) {
-          timeGroup.classList.add("active");
-        }
-      }
-
-      // Initialize - ensure only first group is open
-      document.addEventListener("DOMContentLoaded", function () {
-        // Open only the first group
-        const firstGroup = document.querySelector(".first-group-ctc");
-        if (firstGroup) {
-          firstGroup.classList.add("active");
-        }
-      });
-
-      // Add ripple effect to headers
-      document.querySelectorAll(".collapse-header").forEach((header) => {
-        header.addEventListener("click", function (e) {
-          const ripple = document.createElement("span");
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
-
-          ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s ease-out;
-                    pointer-events: none;
-                `;
-
-          this.appendChild(ripple);
-
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
-        });
-      });
-
-      // Add CSS for ripple animation
-      const style = document.createElement("style");
-      style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-      document.head.appendChild(style);
 
       class ConstructionUpdateSlider {
         constructor() {
