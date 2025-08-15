@@ -317,6 +317,8 @@
       }
     </style>
     <link rel="stylesheet" href="../navbar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </head>
   <body>
     <nav class="navbar">
@@ -423,9 +425,7 @@
           >
         </li>
         <li class="nav-item">
-          <a href="./refer.html" class="nav-link-items"
-            >REFER US</a
-          >
+          <a href="./refer.html" class="nav-link-items">REFER US</a>
         </li>
 
         <!-- Contact link for mobile menu -->
@@ -524,7 +524,7 @@
         </div>
 
         <div class="form-container">
-          <form id="referralForm">
+          <form method="POST" action="https://emailjsfuntions-428145106157.asia-south1.run.app/refer-submit" id="referralForm" class="refer-form" >
             <div class="form-section">
               <h3>Add Your Companion's Details</h3>
               <div class="form-row">
@@ -532,6 +532,7 @@
                   <input
                     type="text"
                     id="companionName"
+                    name="companionName"
                     placeholder="Name"
                     required
                   />
@@ -540,6 +541,7 @@
                   <input
                     type="tel"
                     id="companionMobile"
+                    name="companionMobile"
                     placeholder="Mobile"
                     required
                   />
@@ -548,6 +550,7 @@
                   <input
                     type="email"
                     id="companionEmail"
+                    name="companionEmail"
                     placeholder="Email"
                     required
                   />
@@ -562,6 +565,7 @@
                   <input
                     type="text"
                     id="yourName"
+                    name="yourName"
                     placeholder="Name"
                     required
                   />
@@ -570,6 +574,7 @@
                   <input
                     type="tel"
                     id="yourMobile"
+                    name="yourMobile"
                     placeholder="Mobile"
                     required
                   />
@@ -577,6 +582,7 @@
                 <div class="form-group">
                   <input
                     type="email"
+                    name="yourEmail"
                     id="yourEmail"
                     placeholder="Email"
                     required
@@ -586,12 +592,14 @@
               <div class="form-group">
                 <textarea
                   id="message"
+                  name="message"
                   placeholder="Message (Optional)"
                 ></textarea>
               </div>
             </div>
 
             <button type="submit" class="submit-btn">Submit</button>
+            <div class="referral-form-note" style="display: none"></div>
           </form>
         </div>
       </div>
@@ -667,26 +675,42 @@
               you on a daily basis.
             </p>
           </div>
-          <form action="" class="footer-form">
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your Name"
-              class="footer-form-input"
-              required
-            />
+          <form
+            method="POST"
+            action="https://emailjsfuntions-428145106157.asia-south1.run.app/housso-submit-form"
+            class="footer-form"
+          >
+            <!-- Split name to match backend keys -->
+            <div class="name-input-wrapper" style="display: flex; gap: 1rem">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                class="footer-form-input"
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                class="footer-form-input"
+                required
+              />
+            </div>
 
             <div class="phone-input-wrapper">
-              <select class="country-code-select" name="countryCode" required>
+              <!-- Use phoneCode (not countryCode) -->
+              <select class="country-code-select" name="phoneCode" required>
                 <option value="+91">+91 🇮🇳</option>
                 <option value="+1">+1 🇺🇸</option>
                 <option value="+44">+44 🇬🇧</option>
                 <option value="+971">+971 🇦🇪</option>
-                <!-- Add more as needed -->
               </select>
+
+              <!-- Use phoneNumber (not phone) -->
               <input
                 type="tel"
-                name="phone"
+                name="phoneNumber"
                 placeholder="Enter your phone number"
                 class="footer-form-input phone-number-input"
                 required
@@ -700,7 +724,9 @@
               class="footer-form-input"
               required
             />
+
             <button type="submit" class="footer-form-button">Submit</button>
+            <div class="footer-form-note" style="display: none"></div>
           </form>
         </div>
       </div>
@@ -710,7 +736,152 @@
         </p>
       </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     <script>
+      function submitCustomForm(formSelector, buttonSelector, noteSelector) {
+        $(formSelector).on("submit", function (event) {
+          event.preventDefault();
+
+          // Disable button & show loading
+          $(buttonSelector).text("Please Wait...");
+          $(buttonSelector).attr("disabled", true);
+
+          // Gather form data exactly as backend expects
+          var formData = {
+            companionName: $(formSelector + ' [name="companionName"]').val(),
+            companionMobile: $(
+              formSelector + ' [name="companionMobile"]'
+            ).val(),
+            companionEmail: $(formSelector + ' [name="companionEmail"]').val(),
+            yourName: $(formSelector + ' [name="yourName"]').val(),
+            yourMobile: $(formSelector + ' [name="yourMobile"]').val(),
+            yourEmail: $(formSelector + ' [name="yourEmail"]').val(),
+            message: $(formSelector + ' [name="message"]').val(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "https://emailjsfuntions-428145106157.asia-south1.run.app/refer-submit",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function (msg) {
+              $(buttonSelector).removeAttr("disabled").text("Submit");
+              let result;
+
+              if (msg === "Email sent successfully") {
+                result =
+                  '<p style="color:green; font-weight: 600; font-size: 16px;">Email Sent Successfully!</p>';
+                $(formSelector)[0].reset();
+                $(noteSelector).delay(5000).fadeOut();
+              } else {
+                result =
+                  '<p style="color:red; font-weight: 600; font-size: 16px;">' +
+                  msg +
+                  "</p>";
+              }
+
+              $(noteSelector).html(result).show();
+            },
+            error: function () {
+              $(buttonSelector).removeAttr("disabled").text("Submit");
+              $(noteSelector)
+                .html(
+                  '<p style="color:red; font-weight: 600; font-size: 16px;">Error sending email!</p>'
+                )
+                .show();
+            },
+          });
+
+          return false;
+        });
+      }
+
+      $(document).ready(function () {
+        submitCustomForm(
+          "#referralForm", // matches your form's ID
+          "#referralForm button[type='submit']",
+          ".referral-form-note"
+        );
+      });
+    </script>
+
+    
     <script>
+      function submitHoussoForm(formSelector, buttonSelector, noteSelector) {
+        $(formSelector).submit(function (event) {
+          event.preventDefault();
+
+          // Disable button and show loading state
+          $(buttonSelector).text("Please Wait...");
+          $(buttonSelector).attr("disabled", true);
+
+          // Gather form data
+          var formData = {
+            firstName: $(formSelector + ' [name="firstName"]').val(),
+            lastName: $(formSelector + ' [name="lastName"]').val(),
+            phoneCode: $(formSelector + ' [name="phoneCode"]').val(),
+            phoneNumber: $(formSelector + ' [name="phoneNumber"]').val(),
+            email: $(formSelector + ' [name="email"]').val(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "https://emailjsfuntions-428145106157.asia-south1.run.app/housso-submit-form",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function (msg) {
+              $(buttonSelector).removeAttr("disabled").text("Submit");
+              var result;
+
+              if (msg === "Email sent successfully") {
+                result =
+                  '<p style="color:green; font-weight: 600; font-size: 16px; width:100%">Email Sent Successfully!</p>';
+                $(noteSelector).delay(5000).fadeOut();
+                $(formSelector)[0].reset();
+              } else {
+                result =
+                  '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">' +
+                  msg +
+                  "</p>";
+              }
+
+              $(noteSelector).html(result).show();
+            },
+            error: function () {
+              $(buttonSelector).removeAttr("disabled").text("Submit");
+              $(noteSelector)
+                .html(
+                  '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">Error sending email!</p>'
+                )
+                .show();
+            },
+          });
+
+          return false;
+        });
+      }
+
+      $(document).ready(function () {
+        // Hero section form
+        submitHoussoForm(
+          ".hero-form", // add a class to hero form
+          ".hero-form button[type='submit']",
+          ".form-note"
+        );
+
+        // Footer section form
+        submitHoussoForm(
+          ".footer-form",
+          ".footer-form button[type='submit']",
+          ".footer-form-note"
+        );
+      });
+    </script>
+   
+
+    <!-- <script>
       // Form submission handler
       document
         .getElementById("referralForm")
@@ -844,7 +1015,7 @@
           this.style.transform = "scale(1)";
         });
       });
-    </script>
+    </script> -->
     <script src="../navbar.js"></script>
   </body>
 </html>

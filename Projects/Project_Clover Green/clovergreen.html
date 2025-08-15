@@ -12,6 +12,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../navbar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </head>
 
   <body>
@@ -64,7 +66,11 @@
       <section class="hero-section" id="home">
         <div class="hero-section-content">
           <div class="hero-section-form-wrapper">
-            <form action="">
+            <form
+              class="hero-form"
+              method="POST"
+              action="https://emailjsfuntions-428145106157.asia-south1.run.app/housso-submit-form"
+            >
               <div class="form-title-wrapper">
                 <h1 class="form-title">Get in Touch!</h1>
                 <p class="form-subtitle">
@@ -73,16 +79,18 @@
               </div>
               <div class="form-wrapper">
                 <div class="form-field-wrapper">
-                  <label for="name" class="form-label">Name*</label>
+                  <label class="form-label">Name*</label>
                   <div>
                     <input
-                      type="name"
+                      type="text"
+                      name="firstName"
                       placeholder="First Name"
                       class="form-input"
                       required
                     />
                     <input
-                      type="name"
+                      type="text"
+                      name="lastName"
                       placeholder="Last Name"
                       class="form-input"
                       required
@@ -90,16 +98,18 @@
                   </div>
                 </div>
                 <div class="form-field-wrapper">
-                  <label for="phone" class="form-label">Phone Numebr*</label>
+                  <label class="form-label">Phone Number*</label>
                   <div>
                     <input
-                      type="phone"
+                      type="text"
+                      name="phoneCode"
                       placeholder="+91"
                       class="form-input"
                       required
                     />
                     <input
-                      type="phone"
+                      type="text"
+                      name="phoneNumber"
                       placeholder="Phone Number"
                       class="form-input"
                       required
@@ -107,14 +117,16 @@
                   </div>
                 </div>
                 <div class="form-field-wrapper">
-                  <label for="email" class="form-label">Email*</label>
+                  <label class="form-label">Email*</label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email"
                     class="form-input email-input"
                     required
                   />
                 </div>
+                <div class="form-note" style="display: none"></div>
                 <div class="submit-btn">
                   <button type="submit">Submit</button>
                 </div>
@@ -674,26 +686,42 @@
                 to you on a daily basis.
               </p> -->
             </div>
-            <form action="" class="footer-form">
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter your Name"
-                class="footer-form-input"
-                required
-              />
+            <form
+              method="POST"
+              action="https://emailjsfuntions-428145106157.asia-south1.run.app/housso-submit-form"
+              class="footer-form"
+            >
+              <!-- Split name to match backend keys -->
+              <div class="name-input-wrapper" style="display: flex; gap: 1rem">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  class="footer-form-input"
+                  required
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  class="footer-form-input"
+                  required
+                />
+              </div>
 
               <div class="phone-input-wrapper">
-                <select class="country-code-select" name="countryCode" required>
+                <!-- Use phoneCode (not countryCode) -->
+                <select class="country-code-select" name="phoneCode" required>
                   <option value="+91">+91 🇮🇳</option>
                   <option value="+1">+1 🇺🇸</option>
                   <option value="+44">+44 🇬🇧</option>
                   <option value="+971">+971 🇦🇪</option>
-                  <!-- Add more as needed -->
                 </select>
+
+                <!-- Use phoneNumber (not phone) -->
                 <input
                   type="tel"
-                  name="phone"
+                  name="phoneNumber"
                   placeholder="Enter your phone number"
                   class="footer-form-input phone-number-input"
                   required
@@ -707,7 +735,9 @@
                 class="footer-form-input"
                 required
               />
+
               <button type="submit" class="footer-form-button">Submit</button>
+              <div class="footer-form-note" style="display: none"></div>
             </form>
           </div>
         </div>
@@ -718,6 +748,79 @@
         </div>
       </footer>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      function submitHoussoForm(formSelector, buttonSelector, noteSelector) {
+        $(formSelector).submit(function (event) {
+          event.preventDefault();
+
+          // Disable button and show loading state
+          $(buttonSelector).text("Please Wait...");
+          $(buttonSelector).attr("disabled", true);
+
+          // Gather form data
+          var formData = {
+            firstName: $(formSelector + ' [name="firstName"]').val(),
+            lastName: $(formSelector + ' [name="lastName"]').val(),
+            phoneCode: $(formSelector + ' [name="phoneCode"]').val(),
+            phoneNumber: $(formSelector + ' [name="phoneNumber"]').val(),
+            email: $(formSelector + ' [name="email"]').val(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "https://emailjsfuntions-428145106157.asia-south1.run.app/housso-submit-form",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function (msg) {
+              $(buttonSelector).removeAttr("disabled").text("Submit");
+              var result;
+
+              if (msg === "Email sent successfully") {
+                result =
+                  '<p style="color:green; font-weight: 600; font-size: 16px; width:100%">Email Sent Successfully!</p>';
+                $(noteSelector).delay(5000).fadeOut();
+                $(formSelector)[0].reset();
+              } else {
+                result =
+                  '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">' +
+                  msg +
+                  "</p>";
+              }
+
+              $(noteSelector).html(result).show();
+            },
+            error: function () {
+              $(buttonSelector).removeAttr("disabled").text("Submit");
+              $(noteSelector)
+                .html(
+                  '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">Error sending email!</p>'
+                )
+                .show();
+            },
+          });
+
+          return false;
+        });
+      }
+
+      $(document).ready(function () {
+        // Hero section form
+        submitHoussoForm(
+          ".hero-form", // add a class to hero form
+          ".hero-form button[type='submit']",
+          ".form-note"
+        );
+
+        // Footer section form
+        submitHoussoForm(
+          ".footer-form",
+          ".footer-form button[type='submit']",
+          ".footer-form-note"
+        );
+      });
+    </script>
     <script>
       class GallerySlider {
         constructor(selector, options = {}) {
