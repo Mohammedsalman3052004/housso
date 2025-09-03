@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="../../navbar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../brochure.css">
 
   </head>
 
@@ -886,6 +887,217 @@
         </div>
       </footer>
     </main>
+
+    
+<!-- Download Brochure Button -->
+<button class="download-brochure-btn" onclick="openBrochureModal()">
+    <svg class="download-icon" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+    </svg>
+    Download Brochure
+</button>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="brochureModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeBrochureModal()">×</button>
+        
+        <h2 class="brochure-form-title">Download Brochure</h2>
+        <p class="brochure-form-subtitle">Fill in your details to download the Anasaa project brochure</p>
+        
+        <form class="brochure-form" id="brochureForm">
+            <div class="brochure-form-field">
+                <label class="brochure-form-label">Name*</label>
+                <div class="brochure-name-inputs">
+                    <input 
+                        type="text" 
+                        name="firstName" 
+                        placeholder="First Name" 
+                        class="brochure-form-input"
+                        required
+                    />
+                    <input 
+                        type="text" 
+                        name="lastName" 
+                        placeholder="Last Name" 
+                        class="brochure-form-input"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="brochure-form-field">
+                <label class="brochure-form-label">Phone Number*</label>
+                <div class="brochure-phone-inputs">
+                    <input 
+                        type="text" 
+                        name="phoneCode" 
+                        placeholder="+91" 
+                        class="brochure-form-input brochure-phone-code"
+                        value="+91"
+                        required
+                    />
+                    <input 
+                        type="text" 
+                        name="phoneNumber" 
+                        placeholder="Phone Number" 
+                        class="brochure-form-input brochure-phone-number"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="brochure-form-field">
+                <label class="brochure-form-label">Email*</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    class="brochure-form-input"
+                    required
+                />
+            </div>
+
+            <button type="submit" class="brochure-submit-btn">
+                Download Brochure
+            </button>
+
+            <div class="brochure-form-note" id="brochureFormNote" style="display: none;"></div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+// Modal Functions
+function openBrochureModal() {
+    const modal = document.getElementById('brochureModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBrochureModal() {
+    const modal = document.getElementById('brochureModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    
+    // Reset form
+    document.getElementById('brochureForm').reset();
+    const note = document.getElementById('brochureFormNote');
+    note.style.display = 'none';
+}
+
+// Close modal when clicking outside
+document.getElementById('brochureModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeBrochureModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeBrochureModal();
+    }
+});
+
+// Form submission
+document.getElementById('brochureForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = this.querySelector('.brochure-submit-btn');
+    const note = document.getElementById('brochureFormNote');
+    
+    // Disable button and show loading state
+    submitBtn.textContent = 'Please Wait...';
+    submitBtn.disabled = true;
+    
+    // Gather form data
+    const formData = {
+        firstName: this.querySelector('[name="firstName"]').value,
+        lastName: this.querySelector('[name="lastName"]').value,
+        phoneCode: this.querySelector('[name="phoneCode"]').value,
+        phoneNumber: this.querySelector('[name="phoneNumber"]').value,
+        email: this.querySelector('[name="email"]').value
+    };
+    
+    // Submit to Google Cloud endpoint
+    fetch('https://emailjsfuntions-428145106157.asia-south1.run.app/housso-submit-form', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download Brochure';
+        
+        if (data === 'Email sent successfully') {
+            // Success - trigger download and show success message
+            note.innerHTML = '<p style="color:green; font-weight: 600;">Success! Your brochure is downloading...</p>';
+            note.style.display = 'block';
+            
+            // Add success animation
+            document.querySelector('.modal-content').classList.add('success-animation');
+            
+            // Start PDF download
+            downloadBrochure();
+            
+            // Reset form and close modal after delay
+            setTimeout(() => {
+                this.reset();
+                note.style.display = 'none';
+                closeBrochureModal();
+                document.querySelector('.modal-content').classList.remove('success-animation');
+            }, 3000);
+            
+        } else {
+            // Error message
+            note.innerHTML = `<p style="color:red; font-weight: 600;">${data}</p>`;
+            note.style.display = 'block';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download Brochure';
+        note.innerHTML = '<p style="color:red; font-weight: 600;">Error sending request. Please try again.</p>';
+        note.style.display = 'block';
+    });
+});
+
+// Function to trigger PDF download
+function downloadBrochure() {
+    // Create a temporary link element for download
+    // Replace 'brochure-url.pdf' with your actual PDF URL
+    const link = document.createElement('a');
+    link.href = '../brochure/Bellagio Brochure.pdf'; // Update this with your actual PDF path
+    link.download = 'Bellagio Brochure';
+    link.target = '_blank';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Smooth entrance animation when page loads
+window.addEventListener('load', function() {
+    const btn = document.querySelector('.download-brochure-btn');
+    btn.style.transform = 'translateY(100px)';
+    btn.style.opacity = '0';
+    
+    setTimeout(() => {
+        btn.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        btn.style.transform = 'translateY(0)';
+        btn.style.opacity = '1';
+    }, 1000);
+});
+</script>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>

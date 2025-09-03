@@ -1,0 +1,240 @@
+/* Download Brochure Button Styles */
+.download-brochure-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background-color: #333333;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+
+.download-brochure-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+  /* background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%); */
+  background-color: #8D6E63;
+}
+
+.download-brochure-btn:active {
+  transform: translateY(0);
+}
+
+.download-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f8f9fa;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #e9ecef;
+  transform: rotate(90deg);
+}
+
+/* Form Styles */
+.brochure-form-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.brochure-form-subtitle {
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.brochure-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brochure-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.brochure-form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.brochure-name-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.brochure-phone-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.brochure-form-input {
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.brochure-form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.brochure-phone-code {
+  flex: 0 0 80px;
+}
+
+.brochure-phone-number {
+  flex: 1;
+}
+
+.brochure-submit-btn {
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background-color: #8D6E63;
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.brochure-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.brochure-submit-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.brochure-form-note {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+
+  .brochure-name-inputs,
+  .brochure-phone-inputs {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .download-brochure-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Success Animation */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-animation {
+  animation: successPulse 0.6s ease;
+}
